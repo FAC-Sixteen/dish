@@ -27,6 +27,7 @@
     "tape": "^4.10.1"
   },
   "dependencies": {
+    "dotenv": "^8.0.0",
     "env2": "^2.2.2",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",

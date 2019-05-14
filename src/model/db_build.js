@@ -1,7 +1,7 @@
 const dbConnection = require("./db_connection");
-const { readFile } = require("fs");
+const fs = require("fs");
 
-const sql = readFile(`${__dirname}/db_build.sql`).toString();
+const sql = fs.readFileSync(`${__dirname}/db_build.sql`).toString();
 
 const runDbBuild = () =>
   new Promise((resolve, reject) => {
@@ -11,5 +11,5 @@ const runDbBuild = () =>
       resolve(true);
     });
   });
-
+runDbBuild();
 module.exports = runDbBuild;
