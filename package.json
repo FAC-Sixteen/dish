@@ -1,0 +1,36 @@
+{
+  "name": "dish",
+  "version": "1.0.0",
+  "description": "Team Dish ===",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAC-Sixteen/dish.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FAC-Sixteen/dish/issues"
+  },
+  "homepage": "https://github.com/FAC-Sixteen/dish#readme",
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.0",
+    "nyc": "^14.1.1",
+    "supertest": "^4.0.2",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.10.1"
+  },
+  "dependencies": {
+    "env2": "^2.2.2",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "pg": "^7.11.0",
+    "serve-favicon": "^2.5.0"
+  }
+}
