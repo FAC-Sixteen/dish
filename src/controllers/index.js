@@ -2,13 +2,14 @@ const express = require("express");
 const path = require("path");
 const router = express.Router();
 const { failureMessage } = require("./failure-messages");
+const { successMessage } = require("./success-messages");
 
 router.get("/", (req, res) => {
   res.render("home");
   console.log("This is the home route.");
 });
 
-const repeatFailure = thing => {
+const repeatRoute = thing => {
   const pathText = thing.split("/")[1];
   const action = pathText.split("-")[1];
   const item = pathText.split("-")[0];
@@ -21,14 +22,20 @@ const repeatFailure = thing => {
   });
 };
 
-const failureRoutes = [
+const routes = [
   "/dish-list-failure",
   "/dish-claim-failure",
   "/community-add-failure",
-  "/community-join-failure"
+  "/community-join-failure",
+  "/account-register-failure",
+  "/dish-list-success",
+  "/dish-claim-success",
+  "/community-add-success",
+  "/community-join-success",
+  "/account-register-success"
 ];
 
-failureRoutes.forEach(route => repeatFailure(route));
+routes.forEach(route => repeatRoute(route));
 
 // router.get("/dish-list-failure", (req, res) => {
 //   failureMessage(res, "listing", "dish");
