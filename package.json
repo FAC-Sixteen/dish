@@ -4,7 +4,9 @@
   "description": "Team Dish ===",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "go": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -28,9 +30,11 @@
   },
   "dependencies": {
     "dotenv": "^8.0.0",
+    "body-parser": "^1.19.0",
     "env2": "^2.2.2",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
+    "path": "^0.12.7",
     "pg": "^7.11.0",
     "serve-favicon": "^2.5.0"
   }
