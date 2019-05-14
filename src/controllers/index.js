@@ -8,20 +8,42 @@ router.get("/", (req, res) => {
   console.log("This is the home route.");
 });
 
-router.get("/dish-list-failure", (req, res) => {
-  failureMessage(res, "listing", "dish");
-});
+const repeatFailure = thing => {
+  const pathText = thing.split("/")[1];
+  const action = pathText.split("-")[1];
+  const item = pathText.split("-")[0];
+  const outcome = pathText.split("-")[2];
+  console.log(item, action);
+  router.get(thing, (req, res) => {
+    outcome === "failure"
+      ? failureMessage(res, action + "ing", item)
+      : successMessage(res, action + "ing", item);
+  });
+};
 
-router.get("/dish-claim-failure", (req, res) => {
-  failureMessage(res, "claiming", "dish");
-});
+const failureRoutes = [
+  "/dish-list-failure",
+  "/dish-claim-failure",
+  "/community-add-failure",
+  "/community-join-failure"
+];
 
-router.get("/community-add-failure", (req, res) => {
-  failureMessage(res, "adding", "community");
-});
+failureRoutes.forEach(route => repeatFailure(route));
 
-router.get("/community-join-failure", (req, res) => {
-  failureMessage(res, "joining", "community");
-});
+// router.get("/dish-list-failure", (req, res) => {
+//   failureMessage(res, "listing", "dish");
+// });
+
+// router.get("/dish-claim-failure", (req, res) => {
+//   failureMessage(res, "claiming", "dish");
+// });
+
+// router.get("/community-add-failure", (req, res) => {
+//   failureMessage(res, "adding", "community");
+// });
+
+// router.get("/community-join-failure", (req, res) => {
+//   failureMessage(res, "joining", "community");
+// });
 
 module.exports = router;
