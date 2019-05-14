@@ -1,5 +1,5 @@
 const { Pool } = require("pg");
-require("dotenv")("./config.env");
+require("dotenv").config();
 
 let connectionString =
   process.env.NODE_ENV === "test"
