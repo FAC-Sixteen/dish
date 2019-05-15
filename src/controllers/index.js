@@ -57,6 +57,18 @@ const repeatInformationRoutes = route => {
 
 informationRoutes.forEach(route => repeatInformationRoutes(route));
 
+const basicRoutes = ['/login', '/main', '/register', '/about'];
+
+const repeatBasicRoutes = route => {
+  const path = route.split('/')[1];
+  router.get(route, (req, res) => {
+  res.render(path);
+  console.log(`This is the ${path} route`)
+});
+}
+
+basicRoutes.forEach(route => repeatBasicRoutes(route));
+
 
 // const infoRoutes = ["/dish-info", "community-info"];
 //
