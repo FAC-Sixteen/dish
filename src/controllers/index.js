@@ -1,15 +1,18 @@
+//Import Node modules
+
 const express = require("express");
 const path = require("path");
 const router = express.Router();
-const { failureMessage } = require("./failure-messages");
-const { successMessage } = require("./success-messages");
+
+// Import our functions
+const titleCase = require('../views/helpers/title-case.js');
 
 router.get("/", (req, res) => {
   res.render("home");
   console.log("This is the home route.");
 });
 
-const repeatRoute = route => {
+const repeatOutcomeRoute = route => {
   const pathText = route.split("/")[1];
   const action = pathText.split("-")[1];
   const item = pathText.split("-")[0];
@@ -20,7 +23,7 @@ const repeatRoute = route => {
   });
 };
 
-const routes = [
+const outcomeRoutes = [
   "/dish-list-failure",
   "/dish-claim-failure",
   "/community-add-failure",
@@ -33,7 +36,23 @@ const routes = [
   "/account-register-success"
 ];
 
-routes.forEach(route => repeatRoute(route));
+outcomeRoutes.forEach(route => repeatOutcomeRoute(route));
+
+// LISTINGS PAGES routes
+
+const listingRoutes = ["/dish-listings", "/community-listings"]
+
+const repeatListingRoutes = route => {
+  const type = titleCase(route.split("/")[1].split("-")[0]);
+
+  router.get(route, (req, res) => {
+    res.render("listings", {type});
+    console.log("This is the listings route.");
+  });
+
+}
+
+listingRoutes.forEach(route => repeatListingRoutes(route));
 
 // router.get("/dish-list-failure", (req, res) => {
 //   failureMessage(res, "listing", "dish");
