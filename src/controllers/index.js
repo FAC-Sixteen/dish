@@ -12,6 +12,8 @@ router.get("/", (req, res) => {
   console.log("This is the home route.");
 });
 
+// Success/failure pages routes
+
 const repeatOutcomeRoute = route => {
   const pathText = route.split("/")[1];
   const action = pathText.split("-")[1];
@@ -38,21 +40,31 @@ const outcomeRoutes = [
 
 outcomeRoutes.forEach(route => repeatOutcomeRoute(route));
 
-// LISTINGS PAGES routes
+// Listings pages routes
 
-const listingRoutes = ["/dish-listings", "/community-listings"]
+const informationRoutes = ["/dish-listings", "/community-listings", "/community-info", "/dish-info"];
 
-const repeatListingRoutes = route => {
-  const type = titleCase(route.split("/")[1].split("-")[0]);
+const repeatInformationRoutes = route => {
+  const item = titleCase(route.split("/")[1].split("-")[0]);
+  const type = route.split("/")[1].split("-")[1];
 
   router.get(route, (req, res) => {
-    res.render("listings", {type});
-    console.log("This is the listings route.");
+    res.render(type, {item});
+    console.log(`This is the ${type} route.`);
   });
 
 }
 
-listingRoutes.forEach(route => repeatListingRoutes(route));
+informationRoutes.forEach(route => repeatInformationRoutes(route));
+
+
+// const infoRoutes = ["/dish-info", "community-info"];
+//
+// const repeatInfoRoutes = route => {
+//   const type = titleCase(route.split("/")[1].split("-")[0]);
+//
+//   ro
+// }
 
 // router.get("/dish-list-failure", (req, res) => {
 //   failureMessage(res, "listing", "dish");
