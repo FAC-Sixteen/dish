@@ -9,16 +9,14 @@ router.get("/", (req, res) => {
   console.log("This is the home route.");
 });
 
-const repeatRoute = thing => {
-  const pathText = thing.split("/")[1];
+const repeatRoute = route => {
+  const pathText = route.split("/")[1];
   const action = pathText.split("-")[1];
   const item = pathText.split("-")[0];
   const outcome = pathText.split("-")[2];
   console.log(item, action);
-  router.get(thing, (req, res) => {
-    outcome === "failure"
-      ? failureMessage(res, action + "ing", item)
-      : successMessage(res, action + "ing", item);
+  router.get(route, (req, res) => {
+    res.render(outcome, { action, item });
   });
 };
 
