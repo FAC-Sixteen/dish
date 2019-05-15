@@ -4,7 +4,6 @@ const path = require("path");
 const router = express.Router();
 
 // Import our functions
-const titleCase = require('../views/helpers/title-case.js');
 
 router.get("/", (req, res) => {
   res.render("home");
@@ -12,59 +11,24 @@ router.get("/", (req, res) => {
 });
 
 // Success/failure pages routes
-const repeatOutcomeRoute = route => {
-  const pathText = route.split("/")[1];
-  const action = pathText.split("-")[1];
-  const item = pathText.split("-")[0];
-  const outcome = pathText.split("-")[2];
-  console.log(item, action);
-  router.get(route, (req, res) => {
-    res.render(outcome, { action, item });
-  });
-};
 
-const outcomeRoutes = [
-  "/dish-list-failure",
-  "/dish-claim-failure",
-  "/community-add-failure",
-  "/community-join-failure",
-  "/account-register-failure",
-  "/dish-list-success",
-  "/dish-claim-success",
-  "/community-add-success",
-  "/community-join-success",
-  "/account-register-success"
-];
-
-outcomeRoutes.forEach(route => repeatOutcomeRoute(route));
+router.get("/:item-:action-:outcome", (req, res) => {
+  const { item, action, outcome } = req.params;
+  res.render(outcome, { action, item });
+});
 
 // Listings pages routes
-const informationRoutes = ["/dish-listings", "/community-listings", "/community-info", "/dish-info", "/dish-add", "/community-add"];
 
-const repeatInformationRoutes = route => {
-  const item = titleCase(route.split("/")[1].split("-")[0]);
-  const type = route.split("/")[1].split("-")[1];
-
-  router.get(route, (req, res) => {
-    res.render(type, {item});
-    console.log(`This is the ${type} route.`);
-  });
-
-}
-
-informationRoutes.forEach(route => repeatInformationRoutes(route));
+router.get("/:item-:type", (req, res) => {
+  const { item, type } = req.params;
+  res.render(type, { type, item });
+});
 
 // Basic pages routes
-const basicRoutes = ['/login', '/main', '/register', '/about'];
 
-const repeatBasicRoutes = route => {
-  const path = route.split('/')[1];
-  router.get(route, (req, res) => {
+router.get("/:path", (req, res) => {
+  const { path } = req.params;
   res.render(path);
-  console.log(`This is the ${path} route`)
 });
-}
-
-basicRoutes.forEach(route => repeatBasicRoutes(route));
 
 module.exports = router;
