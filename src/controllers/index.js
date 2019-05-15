@@ -42,7 +42,7 @@ outcomeRoutes.forEach(route => repeatOutcomeRoute(route));
 
 // Listings pages routes
 
-const informationRoutes = ["/dish-listings", "/community-listings", "/community-info", "/dish-info"];
+const informationRoutes = ["/dish-listings", "/community-listings", "/community-info", "/dish-info", "/dish-add", "/community-add"];
 
 const repeatInformationRoutes = route => {
   const item = titleCase(route.split("/")[1].split("-")[0]);
