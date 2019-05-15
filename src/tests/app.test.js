@@ -17,13 +17,47 @@ const app = require('../app.js')
 // })
 
 describe('Test the root path', () => {
-    test('It should response the GET method', () => {
+    test('It should response the GET method 200', () => {
         return request(app).get("/").then(response => {
+            expect(response.statusCode).toBe(200);
+        })
+    });
+})
+
+describe('Test the root path', () => {
+    test('It should response the GET response text should contain dish', () => {
+        return request(app).get("/").then(response => {
+            const actual = response.text.includes("dish");
+            expect(actual).toEqual(true)
+        })
+    });
+})
+
+// ["/", "/", "/community-info", "/dish-info", "/dish-add", "/community-add"]
+
+describe('Test the dish-listings path', () => {
+    test('It should response the GET method', () => {
+        return request(app).get("/dish-listings").then(response => {
             expect(response.statusCode).toBe(200)
         })
     });
 })
 
+describe('Test the community-listings path', () => {
+    test('It should response the GET method', () => {
+        return request(app).get("/community-listings").then(response => {
+            expect(response.statusCode).toBe(200)
+        })
+    });
+})
+
+describe('Test the community-listings path', () => {
+    test('It should response the GET method', () => {
+        return request(app).get("/community-listings").then(response => {
+            expect(response.statusCode).toBe(200)
+        })
+    });
+})
 
 
 
