@@ -33,7 +33,6 @@ describe('Test the root path', () => {
     });
 })
 
-// ["/", "/", "/community-info", "/dish-info", "/dish-add", "/community-add"]
 
 describe('Test the dish-listings path', () => {
     test('It should response the GET method', () => {
@@ -51,13 +50,35 @@ describe('Test the community-listings path', () => {
     });
 })
 
-describe('Test the community-listings path', () => {
+describe('Test the community-info path', () => {
     test('It should response the GET method', () => {
-        return request(app).get("/community-listings").then(response => {
+        return request(app).get("/community-info").then(response => {
             expect(response.statusCode).toBe(200)
         })
     });
 })
 
+describe('Test the dish-info path', () => {
+    test('It should response the GET method', () => {
+        return request(app).get("/dish-info").then(response => {
+            expect(response.statusCode).toBe(200)
+        })
+    });
+})
 
+describe('Test the dish-add path', () => {
+    test('It should response the GET method', () => {
+        return request(app).get("/dish-add").then(response => {
+            expect(response.statusCode).toBe(200)
+        })
+    });
+})
+
+describe('Test the community-add path', () => {
+    test('It should response the GET method', () => {
+        return request(app).get("/community-add").then(response => {
+            expect(response.statusCode).toBe(200)
+        })
+    });
+})
 
