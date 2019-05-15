@@ -67,7 +67,7 @@ INSERT INTO users (username, password, email, image, location) VALUES ('Sandra',
 INSERT INTO communities (adminID, name, location, description, image) VALUES (2, 'Space4', 'Finsbury Park', 'A frindly co-working community', 'https://gph.is/2bcGfQj');
 
 INSERT INTO dishes (creatorID, communityID, name, teaser, description, portions, portions_remaining, date_cooked, collection_time, collection_location, vegetarian, vegan, gf, nuts, dairy, halal, kosher, shellfish, image) VALUES 
-(1, 1, 'Burrito', 'Tastiness in a roll', 'Delicious, delicious things like avocado and cheese.', 2, 2, 2019-05-15, '1pm', 'Space4 fridge', 1, 0, 0, 0, 1, 0, 0, 0, 'https://bit.ly/30j0J3G');
+(1, 1, 'Burrito', 'Tastiness in a roll', 'Delicious, delicious things like avocado and cheese.', 2, 2, '2019-05-15', '1pm', 'Space4 fridge', '1', '0', '0', '0', '1', '0', '0', '0', 'https://bit.ly/30j0J3G');
 
 COMMIT;
 
