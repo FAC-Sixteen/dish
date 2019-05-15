@@ -1,5 +1,4 @@
 //Import Node modules
-
 const express = require("express");
 const path = require("path");
 const router = express.Router();
@@ -13,7 +12,6 @@ router.get("/", (req, res) => {
 });
 
 // Success/failure pages routes
-
 const repeatOutcomeRoute = route => {
   const pathText = route.split("/")[1];
   const action = pathText.split("-")[1];
@@ -41,7 +39,6 @@ const outcomeRoutes = [
 outcomeRoutes.forEach(route => repeatOutcomeRoute(route));
 
 // Listings pages routes
-
 const informationRoutes = ["/dish-listings", "/community-listings", "/community-info", "/dish-info", "/dish-add", "/community-add"];
 
 const repeatInformationRoutes = route => {
@@ -57,6 +54,7 @@ const repeatInformationRoutes = route => {
 
 informationRoutes.forEach(route => repeatInformationRoutes(route));
 
+// Basic pages routes
 const basicRoutes = ['/login', '/main', '/register', '/about'];
 
 const repeatBasicRoutes = route => {
@@ -68,30 +66,5 @@ const repeatBasicRoutes = route => {
 }
 
 basicRoutes.forEach(route => repeatBasicRoutes(route));
-
-
-// const infoRoutes = ["/dish-info", "community-info"];
-//
-// const repeatInfoRoutes = route => {
-//   const type = titleCase(route.split("/")[1].split("-")[0]);
-//
-//   ro
-// }
-
-// router.get("/dish-list-failure", (req, res) => {
-//   failureMessage(res, "listing", "dish");
-// });
-
-// router.get("/dish-claim-failure", (req, res) => {
-//   failureMessage(res, "claiming", "dish");
-// });
-
-// router.get("/community-add-failure", (req, res) => {
-//   failureMessage(res, "adding", "community");
-// });
-
-// router.get("/community-join-failure", (req, res) => {
-//   failureMessage(res, "joining", "community");
-// });
 
 module.exports = router;
