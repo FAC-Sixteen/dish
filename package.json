@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/FAC-Sixteen/dish#readme",
   "devDependencies": {
+    "eslint": "^5.16.0",
     "istanbul": "^0.4.5",
     "jest": "^24.8.0",
     "nodemon": "^1.19.0",
