@@ -26,24 +26,6 @@ router.get("/:item-:type", (req, res) => {
   const { item, type } = req.params;
   // data has to be defined as an empty array
   let data = []; //DO NOT CHANGE
-  data = [
-    {
-      name: "Burrito",
-      user: "Sandra",
-      image:
-        "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-breakfast-burrito-horizontaljpg-1541624805.jpg?resize=980:*",
-      teaser: "A teaser",
-      description: "a description",
-      vegetarian: 1,
-      vegan: 0,
-      "gluten-free": 1,
-      spiciness: 2,
-      halal: 1,
-      nuts: 1,
-      cooked: "yesterday",
-      servings: 3
-    }
-  ];
   res.render(type, {
     type,
     item,

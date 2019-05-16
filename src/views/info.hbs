@@ -3,11 +3,20 @@
 {{#each data}}
 <div class="item-info">
   <img class="item-info__image" src={{this.image}}>
-  <p class="item-info__additional-info">Dietary info</p>
+
+  {{#if (compare ../item 'dish')}}
+  {{> dietary-info this}}
+  {{/if}}
+
+  {{#if (compare ../item 'community')}}
+  <p class="item-info__additional-info">Community info</p>
+  {{/if}}
+
   <h3 class="item-info__name">{{this.name}}</h3>
   <p class="item-info__teaser">{{this.teaser}}</p>
   <p class="item-info__user">{{this.user}}</p>
-  {{#if (compare item 'dish')}}
+
+  {{#if (compare ../item 'dish')}}
   <div class="item-info__info">
     <p class="item-info__info__servings">Servings: {{this.servings}}</p>
     <p class="item-info__info__cooked">Cooked: {{this.cooked}}</p>
@@ -15,7 +24,7 @@
   </div>
   {{/if}}
 
-  {{#if (compare item 'community')}}
+  {{#if (compare ../item 'community')}}
   <div class="item-info__info">
     <p class="item-info__info__location">Location: {{this.location}}</p>
     <p class="item-info__info__description">{{this.description}}</p>
