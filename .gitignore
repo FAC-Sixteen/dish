@@ -60,3 +60,6 @@ config.env
 
 # next.js build output
 .next
+
+#ignore .DS_Store for Macs
+.DS_Store
