@@ -1,1 +1,33 @@
 <h1>{{ item }} Information</h1>
+
+<div class="item-info">
+  <img class="item-info__image" src="">
+  <p class="item-info__additional-info">Dietary info</p>
+  <h3 class="item-info__name">Name</h3>
+  <p class="item-info__teaser">This is some teaser text</p>
+  <p class="item-info__user">A user</p>
+  {{#if (compare item 'dish')}}
+  <div class="item-info__info">
+    <p class="item-info__info__servings">Servings:</p>
+    <p class="item-info__info__cooked">Cooked:</p>
+    <p class="item-info__info__description">Here is a description</p>
+  </div>
+  {{/if}}
+
+  {{#if (compare item 'community')}}
+  <div class="item-info__info">
+    <p class="item-info__info__location">Location:</p>
+    <p class="item-info__info__description">Here is a description</p>
+  </div>
+  {{/if}}
+</div>
+
+<button>
+  {{#if (compare item 'dish')}}
+  Claim
+  {{/if}}
+
+  {{#if (compare item 'community')}}
+  Join
+  {{/if}}
+</button>
