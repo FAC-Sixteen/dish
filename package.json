@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "node src/index.js",
     "go": "nodemon src/index.js",
-    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
