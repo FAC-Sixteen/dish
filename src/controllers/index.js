@@ -31,19 +31,8 @@ router.get("/:item-:type", (req, res) => {
     item,
     type
   } = req.params;
-  const data = [{
-      image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-breakfast-burrito-horizontaljpg-1541624805.jpg?resize=980:*',
-      teaser: 'THIS IS A TEST TEASER.',
-      name: 'Burrito',
-      type1: 'test'
-    },
-    {
-      image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-breakfast-burrito-horizontaljpg-1541624805.jpg?resize=980:*',
-      teaser: 'This is a better burrito.',
-      name: 'Better Burrito',
-      type1: 'test2'
-    }
-  ]
+  // data has to be defined as an empty array
+  let data = []; //DO NOT CHANGE
   res.render(type, {
     type,
     item,
