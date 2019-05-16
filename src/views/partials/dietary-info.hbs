@@ -1,18 +1,18 @@
 <div class='dietary-info'>
   <ul class='dietary-info__dietary'>Dietary:
-    {{#if (compare vegetarian 1)}}
+    {{#if vegetarian}}
     <li class='dietary-info__dietary__vegetarian'>v</li>
     {{/if}}
-    {{#if (compare vegan 1)}}
+    {{#if vegan}}
     <li class='dietary-info__dietary__vegan'>ve</li>
     {{/if}}
-    {{#if (compare gluten-free 1)}}
-    <li class='dietary-info__dietary__gluten-free'>gf</li>
+    {{#if gluten-free}}
+    <li class='dietary-info__dietary__glutenFree'>gf</li>
     {{/if}}
-    {{#if (compare halal 1)}}
+    {{#if halal}}
     <li class='dietary-info__dietary__halal'>ha</li>
     {{/if}}
-    {{#if (compare kosher 1)}}
+    {{#if kosher}}
     <li class='dietary-info__dietary__kosher'>ko</li>
     {{/if}}
   </ul>
@@ -24,18 +24,18 @@
     <li class='dietary-info__dietary__vegan'>c</li>
     {{/if}}
     {{#if (greaterThanEqualTo spiciness 3)}}
-    <li class='dietary-info__dietary__gluten-free'>c</li>
+    <li class='dietary-info__dietary__glutenFree'>c</li>
     {{/if}}
 
   </ul>
   <ul class='dietary-info__allergens'>Allergens:
-    {{#if (compare nuts 1)}}
+    {{#if nuts}}
     <li class='dietary-info__dietary__nuts'>nuts</li>
     {{/if}}
-    {{#if (compare dairy 1)}}
+    {{#if dairy}}
     <li class='dietary-info__dietary__dairy'>dairy</li>
     {{/if}}
-    {{#if (compare shellfish 1)}}
+    {{#if shellfish}}
     <li class='dietary-info__dietary__shellfish'>shellfish</li>
     {{/if}}
   </ul>
