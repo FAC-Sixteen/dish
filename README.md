@@ -1,5 +1,6 @@
 Team Dish
 ===
+![build](https://api.travis-ci.com/FAC-Sixteen/dish.svg?branch=master)
 
 ## Goals 
 - Pretty, responsive, mobile-first design
