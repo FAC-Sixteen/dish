@@ -1,1 +1,9 @@
 <h1>{{titlecase item}} Listings</h1>
+
+<ul>
+    {{#each data}}
+    <li>
+        {{> card this}}
+    </li>
+    {{/each}}
+</ul>
