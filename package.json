@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "node src/index.js",
-    "go": "nodemon src/index.js"
+    "go": "nodemon src/index.js",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/FAC-Sixteen/dish#readme",
   "devDependencies": {
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "istanbul": "^0.4.5",
     "jest": "^24.8.0",
