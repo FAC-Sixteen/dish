@@ -20,6 +20,7 @@ communityID SERIAL PRIMARY KEY,
 adminID INT,
 name VARCHAR(64) NOT NULL,
 location VARCHAR(64) NOT NULL,
+teaser VARCHAR(64) NOT NULL,
 description VARCHAR(64) NOT NULL,
 image VARCHAR(64) NOT NULL,
 CONSTRAINT adminID FOREIGN KEY (adminID) REFERENCES users (userID)
@@ -64,7 +65,7 @@ CONSTRAINT dishID FOREIGN KEY (dishID) REFERENCES dishes (dishID)
 INSERT INTO users (username, password, email, image, location) VALUES ('Sandra', 'ilovestrawberries', 'sandra@email.com', 'https://giphy.com/gifs/fjxNNYg8HEiKORTaqF', 'Tufnell Park'), 
 ('Bobby', 'yee', 'bobby@yee.com', 'https://gph.is/11VjpH4', 'Manor House');
 
-INSERT INTO communities (adminID, name, location, description, image) VALUES (2, 'Space4', 'Finsbury Park', 'A frindly co-working community', 'https://gph.is/2bcGfQj');
+INSERT INTO communities (adminID, name, location, description, image, teaser) VALUES (2, 'Space4', 'Finsbury Park', 'A frindly co-working community', 'https://gph.is/2bcGfQj', 'Coworking space in Finsbury Park');
 
 INSERT INTO dishes (creatorID, communityID, name, teaser, description, portions, portions_remaining, date_cooked, collection_time, collection_location, vegetarian, vegan, gf, nuts, dairy, halal, kosher, shellfish, image) VALUES 
 (1, 1, 'Burrito', 'Tastiness in a roll', 'Delicious, delicious things like avocado and cheese.', 2, 2, '2019-05-15', '1pm', 'Space4 fridge', '1', '0', '0', '0', '1', '0', '0', '0', 'https://bit.ly/30j0J3G');
