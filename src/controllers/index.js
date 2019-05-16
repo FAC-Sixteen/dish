@@ -34,7 +34,12 @@ router.get("/:item-:type", (req, res) => {
         "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-breakfast-burrito-horizontaljpg-1541624805.jpg?resize=980:*",
       teaser: "A teaser",
       description: "a description",
-      "dietary-info": ["vegetarian", "spicy"],
+      vegetarian: 1,
+      vegan: 0,
+      "gluten-free": 1,
+      spiciness: 2,
+      halal: 1,
+      nuts: 1,
       cooked: "yesterday",
       servings: 3
     }
