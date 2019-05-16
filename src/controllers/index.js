@@ -34,12 +34,14 @@ router.get("/:item-:type", (req, res) => {
   const data = [{
       image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-breakfast-burrito-horizontaljpg-1541624805.jpg?resize=980:*',
       teaser: 'THIS IS A TEST TEASER.',
-      name: 'Burrito'
+      name: 'Burrito',
+      type1: 'test'
     },
     {
       image: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-breakfast-burrito-horizontaljpg-1541624805.jpg?resize=980:*',
       teaser: 'This is a better burrito.',
-      name: 'Better Burrito'
+      name: 'Better Burrito',
+      type1: 'test2'
     }
   ]
   res.render(type, {
