@@ -53,7 +53,10 @@ router.get("/:item-:type", (req, res) => {
           data: response
         });
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        res.send('Error 500')
+        console.log(err)
+      })
   } else if (item === 'community') {
     getCommunityListings()
       .then(response => {
@@ -64,9 +67,12 @@ router.get("/:item-:type", (req, res) => {
           data: response
         });
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        res.send('Error 500')
+        console.log(err)
+      })
   } else {
-    res.send('Error 500')
+    res.send('Error 404')
   }
 })
 
