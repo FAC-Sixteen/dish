@@ -42,8 +42,6 @@ router.get("/:item-listings", (req, res) => {
   const {
     item
   } = req.params;
-  // data has to be defined as an empty array
-  let data = []; //DO NOT CHANGE
   if (item === 'dish') {
     getDishListings()
       .then(response => {
@@ -82,8 +80,6 @@ router.get("/:item/:ID", (req, res) => {
     item,
     ID
   } = req.params;
-  // data has to be defined as an empty array
-  let data = []; //DO NOT CHANGE
   if (item === 'dish') {
     getSpecificDish(ID)
       .then(response => {
