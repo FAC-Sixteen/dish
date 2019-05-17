@@ -2,6 +2,8 @@
 const express = require("express");
 const path = require("path");
 const router = express.Router();
+const postData = require('../queries/post-data.js')
+
 
 //Import queries
 const {
@@ -147,5 +149,25 @@ router.get('/main', (req, res) => {
 
 router.use(error.missing);
 router.use(error.server);
+
+// Basic post routes
+router.post("/:item-add", (req, res) => {
+  const {
+    item
+  } = req.params;
+
+
+  // console.log(item, "this is the item posted");
+  // console.log(req.body, "this is the req body");
+if (item === "dish" ){
+  postData.postSpecificDish(req.body)
+  res.redirect(301, "/dish-list-success")
+}
+else if (item === "community" ){
+  postData.postSpecificCommunity(req.body)
+  res.redirect(301, "/community-add-success")
+}
+
+});
 
 module.exports = router;

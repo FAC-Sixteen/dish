@@ -7,7 +7,8 @@
     "test": "jest",
     "start": "node src/index.js",
     "go": "nodemon src/index.js",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "build": "node src/model/db_build.js"
   },
   "repository": {
     "type": "git",

@@ -1,1 +1,124 @@
 <h1>Create a {{ item }}</h1>
+
+<form action="{{ item }}-add" method="post">
+  <div class="img-placeholder">
+  </div>
+  <input type="file">
+
+  <label for="imgUrl">Image URL<sup class="required-asterisk">*</sup></label>
+    <input type="text" name="imgUrl" id="imgUrl" required>
+
+  <label for="title">Name your {{ item }}<sup class="required-asterisk">*</sup></label>
+    <input type="text" name="title" id="title" required>
+
+    {{#if (compare item 'dish')}}
+
+    <label for="teaser">Write a one-liner about your dish<sup class="required-asterisk">*</sup></label>
+    <input type="text" name="teaser" id="teaser" required>
+
+    <label for="spiciness">Spiciness</label>
+    <select name="spiciness" id="spiciness" required>
+      <option value="0">Not spicy</option>
+      <option value="1">Mild</option>
+      <option value="2">Medium</option>
+      <option value="3">Spicy</option>
+    </select>
+
+      <h3>Dietary information</h3>
+
+      <label for="vegetarian">Vegetarian</label>
+      <input type="checkbox" name="vegetarian" id="vegetarian" value=1>
+
+      <label for="vegan">Vegan</label>
+      <input type="checkbox" name="vegan" id="vegan" value="1">
+
+      <label for="gluten-free">Gluten Free</label>
+      <input type="checkbox" name="glutenFree" id="gluten-free" value="1">
+
+      <label for="halal">Halal</label>
+      <input type="checkbox" name="halal" id="halal" value="1">
+
+      <label for="kosher">Kosher</label>
+      <input type="checkbox" name="kosher" id="kosher" value="1">
+
+      <h3>Allergies</h3>
+
+      <p>Contains:</p>
+      <label for="nuts">Nuts</label>
+      <input type="checkbox" name="nuts" id="nuts" value="1">
+
+      <label for="shellfish">Shellfish</label>
+      <input type="checkbox" name="shellfish" id="shellfish" value="1">
+
+      <label for="dairy">Dairy</label>
+      <input type="checkbox" name="dairy" id="dairy" value="1">
+
+      <label for="servings">Servings</label>
+      <select name="servings" id="servings" required>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+        <option value="4">Four</option>
+        <option value="5">Five</option>
+      </select>
+
+      <label for="cooked">Cooked</label>
+      <input type="date" name="cooked" id="cooked" value="" min="2019-01-01">
+
+      <label for="collection">Collection time</label>
+      <input type="datetime-local" name="collection" id="collection" min="2019-01-01T00:00">
+
+      <label for="location">Collection location</label>
+      <input type="text" name="location" id="location" required>
+
+      <label for="additional">Additional Info</label>
+      <textarea name="additional" id="additional" rows="5" required></textarea>
+
+      {{else}}
+
+
+      <label for="description">Describe your community</label>
+      <textarea name="description" id="description" rows="5" required></textarea>
+
+      <select name="borough" id="borough" required>
+        <option value="">lambeth</option>
+        <option value="">havering</option>
+        <option value="">bexley</option>
+        <option value="">redbridge</option>
+        <option value="">enfield</option>
+        <option value="">walthamforest</option>
+        <option value="">sutton</option>
+        <option value="">kingston</option>
+        <option value="">bromley</option>
+        <option value="">croydon</option>
+        <option value="">barkinganddagenham</option>
+        <option value="">newham</option>
+        <option value="">greenwich</option>
+        <option value="">towerhamlets</option>
+        <option value="">hackney</option>
+        <option value="">islington</option>
+        <option value="">cityoflondon</option>
+        <option value="">merton</option>
+        <option value="">lewisham</option>
+        <option value="">southwark</option>
+        <option value="">haringey</option>
+        <option value="">wandsworth</option>
+        <option value="">westminster</option>
+        <option value="">camden</option>
+        <option value="">barnet</option>
+        <option value="">kensingtonandchelsea</option>
+        <option value="">hammersmithandfulham</option>
+        <option value="">brent</option>
+        <option value="">harrow</option>
+        <option value="">richmond</option>
+        <option value="">hounslow</option>
+        <option value="">hillingdon</option>
+        <option value="">ealing</option>
+      </select>
+
+    {{/if}}
+
+    <button type="submit">Create</button>
+
+
+</form>
