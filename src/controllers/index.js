@@ -19,7 +19,6 @@ const error = require('./error');
 
 router.get("/", (req, res) => {
   res.render("home");
-  console.log("This is the home route.");
 });
 
 // Success/failure pages routes
@@ -53,12 +52,10 @@ router.get("/:item-listings", (req, res) => {
       })
       .catch(err => {
         res.send('Error 500')
-        console.log(err)
       })
   } else if (item === 'community') {
     getCommunityListings()
       .then(response => {
-        console.log(response)
         res.render('listings', {
           type: 'listings',
           item,
@@ -67,8 +64,27 @@ router.get("/:item-listings", (req, res) => {
       })
       .catch(err => {
         res.send('Error 500')
-        console.log(err)
       })
+  } else {
+    res.send('Error 404')
+  }
+})
+
+//Add pages routes 
+router.get("/:item-add", (req, res) => {
+  const {
+    item
+  } = req.params;
+  if (item === 'dish') {
+    res.render('add', {
+      item,
+      type: 'add'
+    })
+  } else if (item === 'community') {
+    res.render('add', {
+      item,
+      type: 'add'
+    })
   } else {
     res.send('Error 404')
   }
@@ -91,7 +107,6 @@ router.get("/:item/:ID", (req, res) => {
       })
       .catch(err => {
         res.send('Error 500')
-        console.log(err)
       })
   } else if (item === 'community') {
     getSpecificCommunity(ID)
@@ -104,7 +119,6 @@ router.get("/:item/:ID", (req, res) => {
       })
       .catch(err => {
         res.send('Error 500')
-        console.log(err)
       })
   } else {
     res.send('Error 404')
