@@ -19,7 +19,6 @@ const error = require('./error');
 
 router.get("/", (req, res) => {
   res.render("home");
-  console.log("This is the home route.");
 });
 
 // Success/failure pages routes
@@ -38,39 +37,88 @@ router.get("/:item-:action-:outcome", (req, res) => {
 
 // Listings pages routes
 
-router.get("/:item-:type", (req, res) => {
+router.get("/:item-listings", (req, res) => {
   const {
-    item,
-    type
+    item
   } = req.params;
-  // data has to be defined as an empty array
-  let data = []; //DO NOT CHANGE
   if (item === 'dish') {
     getDishListings()
       .then(response => {
-        res.render(type, {
-          type,
+        res.render('listings', {
           item,
+          type: 'listings',
           data: response
         });
       })
       .catch(err => {
         res.send('Error 500')
-        console.log(err)
       })
   } else if (item === 'community') {
     getCommunityListings()
       .then(response => {
-        console.log(response)
-        res.render(type, {
-          type,
+        res.render('listings', {
+          type: 'listings',
           item,
           data: response
         });
       })
       .catch(err => {
         res.send('Error 500')
-        console.log(err)
+      })
+  } else {
+    res.send('Error 404')
+  }
+})
+
+//Add pages routes 
+router.get("/:item-add", (req, res) => {
+  const {
+    item
+  } = req.params;
+  if (item === 'dish') {
+    res.render('add', {
+      item,
+      type: 'add'
+    })
+  } else if (item === 'community') {
+    res.render('add', {
+      item,
+      type: 'add'
+    })
+  } else {
+    res.send('Error 404')
+  }
+})
+
+//Info pages routes
+router.get("/:item/:ID", (req, res) => {
+  const {
+    item,
+    ID
+  } = req.params;
+  if (item === 'dish') {
+    getSpecificDish(ID)
+      .then(response => {
+        res.render('info', {
+          type: 'info',
+          item,
+          data: response
+        });
+      })
+      .catch(err => {
+        res.send('Error 500')
+      })
+  } else if (item === 'community') {
+    getSpecificCommunity(ID)
+      .then(response => {
+        res.render('info', {
+          type: 'info',
+          item,
+          data: response
+        });
+      })
+      .catch(err => {
+        res.send('Error 500')
       })
   } else {
     res.send('Error 404')

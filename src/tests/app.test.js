@@ -52,7 +52,7 @@ describe('Test the community-listings path', () => {
 
 describe('Test the community-info path', () => {
     test('It should response the GET method', () => {
-        return request(app).get("/community-info").then(response => {
+        return request(app).get("/community/1").then(response => {
             expect(response.statusCode).toBe(200)
         })
     });
@@ -60,7 +60,7 @@ describe('Test the community-info path', () => {
 
 describe('Test the dish-info path', () => {
     test('It should response the GET method', () => {
-        return request(app).get("/dish-info").then(response => {
+        return request(app).get("/dish/1").then(response => {
             expect(response.statusCode).toBe(200)
         })
     });
@@ -81,7 +81,7 @@ describe('Test the community-add path', () => {
         })
     });
 })
-  
+
 
 describe('Test the dish-list-failure path', () => {
     test('It should response the GET method', () => {
@@ -114,7 +114,7 @@ describe('Test the community-join-failure path', () => {
         })
     });
 })
-  
+
 describe('Test the account-register-failure path', () => {
     test('It should response the GET method', () => {
         return request(app).get("/account-register-failure").then(response => {
