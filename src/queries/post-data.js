@@ -64,7 +64,7 @@ const postSpecificDish = (data) => {
     data.shellfish = 0;
   }
 
-  db.query('INSERT INTO dishes(creatorID, communityID, name, teaser, description, portions, portions_remaining, date_cooked, collection_time, collection_location, image, vegetarian, vegan, glutenFree, nuts, dairy, halal, kosher, shellfish) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19) RETURNING dishID, name, image',
+  db.query('INSERT INTO dishes(creatorID, communityID, name, teaser, description, portions, portions_remaining, date_cooked, collection_time, collection_location, image, vegetarian, vegan, glutenFree, nuts, dairy, halal, kosher, shellfish, spiciness) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING dishID, name, image',
   ['2',
   '1',
   data.title,
@@ -83,7 +83,8 @@ data.nuts,
 data.dairy,
 data.halal,
 data.kosher,
-data.shellfish
+data.shellfish,
+data.spiciness
 ])
 .then(response => {
   console.log("New dish added to database", response.rows);
@@ -95,8 +96,8 @@ data.shellfish
 
 const postSpecificCommunity = (data) => {
 
-  db.query('INSERT INTO dishes(adminID, name, location, description, image) VALUES ($1, $2, $3, $4, $5) RETURNING communityID, name, image',
-  [ 2, 
+  db.query('INSERT INTO communities(adminID, name, location, description, image) VALUES ($1, $2, $3, $4, $5) RETURNING communityID, name, image',
+  [ 2,
    data.title,
    data.borough,
    data.description,

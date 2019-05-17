@@ -62,11 +62,11 @@ router.post("/:item-add", (req, res) => {
   // console.log(req.body, "this is the req body");
 if (item === "dish" ){
   postData.postSpecificDish(req.body)
-  res.render("/dish-list-success")
+  res.redirect(301, "/dish-list-success")
 }
 else if (item === "community" ){
   postData.postSpecificCommunity(req.body)
-  res.render("/community-list-success")
+  res.redirect(301, "/community-add-success")
 }
 
 });
