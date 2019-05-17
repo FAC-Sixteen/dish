@@ -92,4 +92,20 @@ data.shellfish
 
 };
 
-module.exports = { postSpecificDish };
+
+const postSpecificCommunity = (data) => {
+
+  db.query('INSERT INTO dishes(adminID, name, location, description, image) VALUES ($1, $2, $3, $4, $5) RETURNING communityID, name, image',
+  [ 2, 
+   data.title,
+   data.borough,
+   data.description,
+   data.imgUrl
+]).then(response => {
+  console.log("New Community added to database", response.rows);
+  return response.rows;
+})
+
+}
+
+module.exports = { postSpecificDish, postSpecificCommunity };

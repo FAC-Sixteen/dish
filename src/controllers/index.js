@@ -62,10 +62,11 @@ router.post("/:item-add", (req, res) => {
   // console.log(req.body, "this is the req body");
 if (item === "dish" ){
   postData.postSpecificDish(req.body)
-  // .then(response => {
-  //   console.log("here's the response", response)
-  // })
-  res.send('ok');
+  res.render("/dish-list-success")
+}
+else if (item === "community" ){
+  postData.postSpecificCommunity(req.body)
+  res.render("/community-list-success")
 }
 
 });
