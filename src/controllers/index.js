@@ -2,7 +2,7 @@
 const express = require("express");
 const path = require("path");
 const router = express.Router();
-const postData = require('./post-data.js')
+const postData = require('../queries/post-data.js')
 
 
 // Import our functions
@@ -54,14 +54,17 @@ router.get("/:path", (req, res) => {
 // Basic post routes
 router.post("/:item-add", (req, res) => {
   const {
-    item 
+    item
   } = req.params;
 
 
   // console.log(item, "this is the item posted");
   // console.log(req.body, "this is the req body");
 if (item === "dish" ){
-  postData.postDish(req.body);
+  postData.postSpecificDish(req.body)
+  // .then(response => {
+  //   console.log("here's the response", response)
+  // })
   res.send('ok');
 }
 

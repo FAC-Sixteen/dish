@@ -4,6 +4,10 @@
   <div class="img-placeholder">
   </div>
   <input type="file">
+
+  <label for="imgUrl">Image URL<sup class="required-asterisk">*</sup></label>
+    <input type="text" name="imgUrl" id="imgUrl" required>
+
   <label for="title">Name your {{ item }}<sup class="required-asterisk">*</sup></label>
     <input type="text" name="title" id="title" required>
 
@@ -23,31 +27,31 @@
       <h3>Dietary information</h3>
 
       <label for="vegetarian">Vegetarian</label>
-      <input type="checkbox" name="vegetarian" value="off" id="vegetarian">
+      <input type="checkbox" name="vegetarian" id="vegetarian" value=1>
 
       <label for="vegan">Vegan</label>
-      <input type="checkbox" name="vegan" id="vegan">
+      <input type="checkbox" name="vegan" id="vegan" value="1">
 
       <label for="gluten-free">Gluten Free</label>
-      <input type="checkbox" name="glutenFree" id="gluten-free">
+      <input type="checkbox" name="glutenFree" id="gluten-free" value="1">
 
       <label for="halal">Halal</label>
-      <input type="checkbox" name="halal" id="halal">
+      <input type="checkbox" name="halal" id="halal" value="1">
 
       <label for="kosher">Kosher</label>
-      <input type="checkbox" name="kosher" id="kosher">
+      <input type="checkbox" name="kosher" id="kosher" value="1">
 
       <h3>Allergies</h3>
 
       <p>Contains:</p>
       <label for="nuts">Nuts</label>
-      <input type="checkbox" name="nuts" id="nuts">
+      <input type="checkbox" name="nuts" id="nuts" value="1">
 
       <label for="shellfish">Shellfish</label>
-      <input type="checkbox" name="shellfish" id="shellfish">
+      <input type="checkbox" name="shellfish" id="shellfish" value="1">
 
       <label for="dairy">Dairy</label>
-      <input type="checkbox" name="dairy" id="dairy">
+      <input type="checkbox" name="dairy" id="dairy" value="1">
 
       <label for="servings">Servings</label>
       <select name="servings" id="servings" required>
