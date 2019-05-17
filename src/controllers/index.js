@@ -14,7 +14,8 @@ const {
   getSpecificCommunity
 } = require('../queries/getCommunityData');
 
-// Import our functions
+//Import error functions
+const error = require('./error');
 
 router.get("/", (req, res) => {
   res.render("home");
@@ -78,11 +79,25 @@ router.get("/:item-:type", (req, res) => {
 
 // Basic pages routes
 
-router.get("/:path", (req, res) => {
-  const {
-    path
-  } = req.params;
-  res.render(path);
-});
+router.get('/about', (req, res) => {
+  res.render('about')
+})
+
+router.get('/register', (req, res) => {
+  res.render('register')
+})
+
+router.get('/login', (req, res) => {
+  res.render('login')
+})
+
+router.get('/main', (req, res) => {
+  res.render('main')
+})
+
+//Error handling
+
+router.use(error.missing);
+router.use(error.server);
 
 module.exports = router;
