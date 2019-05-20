@@ -53,7 +53,7 @@
       <label for="dairy">Dairy</label>
       <input type="checkbox" name="dairy" id="dairy" value="1">
 
-      <label for="servings">Servings</label>
+      <label for="servings">Servings<sup class="required-asterisk">*</sup></label>
       <select name="servings" id="servings" required>
         <option value="1">One</option>
         <option value="2">Two</option>
@@ -62,25 +62,26 @@
         <option value="5">Five</option>
       </select>
 
-      <label for="cooked">Cooked</label>
-      <input type="date" name="cooked" id="cooked" value="" min="2019-01-01">
+      <label for="cooked">Cooked<sup class="required-asterisk">*</sup></label>
+      <input type="date" name="cooked" id="cooked" value="" min="2019-01-01" required>
 
-      <label for="collection">Collection time</label>
-      <input type="datetime-local" name="collection" id="collection" min="2019-01-01T00:00">
+      <label for="collection">Collection time<sup class="required-asterisk">*</sup></label>
+      <input type="datetime-local" name="collection" id="collection" min="2019-01-01T00:00" required>
 
-      <label for="location">Collection location</label>
+      <label for="location">Collection location<sup class="required-asterisk">*</sup></label>
       <input type="text" name="location" id="location" required>
 
-      <label for="additional">Additional Info</label>
+      <label for="additional">Additional Info<sup class="required-asterisk">*</sup></label>
       <textarea name="additional" id="additional" rows="5" required></textarea>
 
       {{else}}
 
 
-      <label for="description">Describe your community</label>
+      <label for="description">Describe your community<sup class="required-asterisk">*</sup></label>
       <textarea name="description" id="description" rows="5" required></textarea>
 
-      <select name="borough" id="borough" required>
+      <label for="borough">Where is your community?<sup class="required-asterisk">*</sup></label>
+      <select name="borough" id="borough">
         <option value="">lambeth</option>
         <option value="">havering</option>
         <option value="">bexley</option>
