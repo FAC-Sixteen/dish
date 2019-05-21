@@ -1,5 +1,39 @@
 @import './variables';
 
 body {
-    background-color: $accent-yellow;
+    background-color: $background-color;
+    font-family: $system-font;
+    font-size: $regular-size;
+    color: $font-color;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    color: $default-red;
+    font-family: $decorative-font;
+    font-size: $h1-size;
+}
+
+.homepage-logo {
+    @include bigLogo();
+}
+
+.footer {
+    font-size: $small-size;
+}
+
+.red-button {
+    @include redButton;
+}
+
+.menu-link {
+    @include menuLink;
+}
+
+.login-options__register {
+    text-transform: uppercase;
+
 }

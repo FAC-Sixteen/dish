@@ -31,3 +31,43 @@ $regular-size: 1em;
 $small-size: 0.875em;
 
 //spacing
+
+//logo
+@mixin bigLogo {
+    height: 145px;
+    width: 145px;
+}
+
+@mixin mediumLogo {
+    height: 130px;
+    width: 130px;
+}
+
+@mixin smallLogo {
+    height: 110px;
+    width: 110px;
+}
+
+//buttons & links
+@mixin redButton {
+    background-color: $default-red;
+    color: $background-color;
+    border-radius: 5px;
+    text-transform: uppercase;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    height: 40px;
+    width: 145px;
+    font-size: $h4-size;
+    font-weight: lighter;
+    letter-spacing: 1px;
+}
+
+@mixin menuLink {
+    color: $default-red;
+    text-decoration: underline;
+    height: 40px;
+    width: 145px;
+    font-size: $h4-size;
+    font-weight: lighter;
+    letter-spacing: 1px;
+}
