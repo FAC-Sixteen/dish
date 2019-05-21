@@ -9,36 +9,59 @@ body {
     color: $font-color;
 }
 
+main {
+    padding: $base;
+}
+
+.footer {
+    position: sticky;
+    font-size: $small-size;
+    margin: 0 $base $base;
+}
+
 a {
     text-decoration: none;
 }
 
-// HOME and INFO pages - Anna
-.homepage-info {
+button {
+    cursor: pointer;
+}
+
+.more-info {
+    display: flex;
+    justify-content: flex-end;
     color: $accent-yellow;
     font-size: $h4-size;
     cursor: pointer;
-    text-decoration: underline;
+
+    p {
+        text-decoration: underline;
+    }
 }
 
-.homepage-tagline {
+.homepage {
+    @include alignCenter();
+    flex-direction: column;
+}
+
+.homepage__logo {
+    @include bigLogo();
+    margin: $base 0 0.5 * $base 0;
+}
+
+.homepage__tagline {
     font-family: $decorative-font;
     color: $dark-red;
     font-size: $h2-size;
+    text-align: right;
+    margin: 0.5 * $base 0 $base 0;
 }
 
 .header {
     color: $default-red;
     font-family: $decorative-font;
     font-size: $h1-size;
-}
-
-.homepage-logo {
-    @include bigLogo();
-}
-
-.footer {
-    font-size: $small-size;
+    cursor: pointer;
 }
 
 .red-button {
@@ -53,9 +76,18 @@ a {
     @include menuLink;
 }
 
-.login-options__register {
-    text-transform: uppercase;
+.login-options {
+    flex-direction: column;
+    @include alignCenter();
+}
 
+.login-options__login {
+    margin-bottom: 0.5 * $base;
+}
+
+.login-options__register {
+    margin-top: 0.5 * $base;
+    text-transform: uppercase;
 }
 
 .about-dish__heading {
@@ -91,5 +123,5 @@ a {
 }
 
 .form-input-labels {
-  font-size: $h4-size;
+    font-size: $h4-size;
 }
