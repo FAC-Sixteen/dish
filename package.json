@@ -4,7 +4,7 @@
   "description": "Team Dish ===",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "NODE_ENV=test jest",
     "start": "node src/index.js",
     "go": "nodemon src/index.js",
     "coverage": "jest --coverage",
