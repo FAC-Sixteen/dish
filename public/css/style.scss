@@ -7,16 +7,21 @@ body {
     font-family: $system-font;
     font-size: $regular-size;
     color: $font-color;
+    line-height: 1.3;
 }
 
 main {
+  height: 85vh;
     padding: $base;
 }
 
 .footer {
-    position: sticky;
+    position: absolute;
+    bottom: $base;
+    left: $base;
     font-size: $small-size;
-    margin: 0 $base $base;
+    margin-top: $base;
+    // height: 15vh;
 }
 
 a {
@@ -99,6 +104,10 @@ button {
     @include mediumLogo();
 }
 
+.about-dish__description {
+  padding-bottom: $base;
+}
+
 .return-link {
     text-decoration: underline;
     color: $font-color;
@@ -110,6 +119,25 @@ button {
     .main-logo {
         @include bigLogo();
     }
+}
+
+// ABOUT pages
+
+.about-dish__heading {
+  color: $font-color;
+  font-family: $decorative-font;
+  font-size: $h3-size;
+}
+
+.about-dish__intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: $base;
+}
+
+.about-dish__logo {
+  @include smallLogo();
 }
 
 
