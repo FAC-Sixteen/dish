@@ -1,14 +1,14 @@
 {
   "name": "dish",
   "version": "1.0.0",
-  "description": "Team Dish ===",
+  "description": "Team Dish",
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test jest --expand --runInBand --detectOpenHandles",
     "start": "node src/index.js",
     "go": "nodemon src/index.js",
     "coverage": "jest --coverage",
-    "build": "node src/model/db_build.js"
+    "build": "NODE_ENV=test node src/model/db_build.js"
   },
   "repository": {
     "type": "git",

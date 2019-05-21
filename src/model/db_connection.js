@@ -8,6 +8,8 @@ let connectionString =
   process.env.TEST_DATABASE_URL :
   process.env.DATABASE_URL;
 
+  console.log(connectionString);
+
 if (!connectionString) throw new Error("Database url must be set");
 
 module.exports = new Pool({
