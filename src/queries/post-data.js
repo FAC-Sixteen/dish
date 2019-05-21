@@ -1,60 +1,30 @@
 const db = require("../model/db_connection.js");
 
+const boolToBit = require("../views/helpers/boolToBit");
+
 const postSpecificDish = data => {
-  console.log(data, "this is in post-data");
-  //
-  // glutenFree bool DEFAULT '0',
-  // nuts bool DEFAULT '0',
-  // dairy bool DEFAULT '0',
-  // halal bool DEFAULT '0',
-  // kosher bool DEFAULT '0',
-  // shellfish
+  const {
+    vegetarian,
+    vegan,
+    glutenFree,
+    nuts,
+    dairy,
+    halal,
+    kosher,
+    shellfish
+  } = data;
 
-  if (data.vegetarian) {
-    data.vegetarian = 1;
-  } else {
-    data.vegetarian = 0;
-  }
-
-  if (data.vegan) {
-    data.vegan = 1;
-  } else {
-    data.vegan = 0;
-  }
-
-  if (data.glutenFree) {
-    data.glutenFree = 1;
-  } else {
-    data.glutenFree = 0;
-  }
-
-  if (data.nuts) {
-    data.nuts = 1;
-  } else {
-    data.nuts = 0;
-  }
-
-  if (data.dairy) {
-    data.dairy = 1;
-  } else {
-    data.dairy = 0;
-  }
-
-  if (data.halal) {
-    data.halal = 1;
-  } else {
-    data.halal = 0;
-  }
-  if (data.kosher) {
-    data.kosher = 1;
-  } else {
-    data.kosher = 0;
-  }
-  if (data.shellfish) {
-    data.shellfish = 1;
-  } else {
-    data.shellfish = 0;
-  }
+  const dietaryArray = [
+    vegetarian,
+    vegan,
+    glutenFree,
+    nuts,
+    dairy,
+    halal,
+    kosher,
+    shellfish
+  ];
+  const bitArray = dietaryArray.map(item => boolToBit(item));
 
   return db
     .query(
@@ -71,14 +41,7 @@ const postSpecificDish = data => {
         data.collection,
         data.location,
         data.imgUrl,
-        data.vegetarian,
-        data.vegan,
-        data.glutenFree,
-        data.nuts,
-        data.dairy,
-        data.halal,
-        data.kosher,
-        data.shellfish,
+        ...bitArray,
         data.spiciness
       ]
     )
