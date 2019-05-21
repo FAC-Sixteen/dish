@@ -7,7 +7,7 @@ before_script:
   - 'npm run build'
 env:
   global:
-    - "TEST_DB_URL=postgres://test:1234@localhost:5432/travis_ci_test"
+    - "TEST_DATABASE_URL=postgres://test:1234@localhost:5432/travis_ci_test"
     - CODECOV_TOKEN=1ce5d98d-1dec-4241-8e42-5fc1c8f9a63f
 after_success:
   - bash <(curl -s https://codecov.io/bash) -e TRAVIS_NODE_VERSION
