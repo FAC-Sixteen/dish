@@ -4,6 +4,15 @@ require("dotenv").config();
 const db = require("../model/db_connection");
 const build = require("../model/db_build");
 
+beforeEach(async () => {
+  await build();
+});
+
+afterAll(async done => {
+  await db.end();
+  done();
+});
+
 describe("Server routes", () => {
   test("home route is rendered correctly", () => {
     return request(app)
