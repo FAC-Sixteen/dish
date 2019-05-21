@@ -95,10 +95,10 @@ router.get("/:item-add", (req, res, next) => {
 });
 
 //Info pages routes
-router.get("/:item/:ID", (req, res, next) => {
+router.get("/:item-:ID", (req, res, next) => {
   const { item, ID } = req.params;
   if (item === "dish") {
-    getSpecificDish(ID)
+    getSpecificDish(parseInt(ID))
       .then(response => {
         res.render("info", {
           type: "info",
@@ -108,7 +108,7 @@ router.get("/:item/:ID", (req, res, next) => {
       })
       .catch(err => next(err));
   } else if (item === "community") {
-    getSpecificCommunity(ID)
+    getSpecificCommunity(parseInt(ID))
       .then(response => {
         res.render("info", {
           type: "info",
