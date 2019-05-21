@@ -7,7 +7,6 @@ const postData = require("../queries/post-data");
 
 
 
-
 // describe('Test getDishData function ', () => {
 // test("getDishData should retrieve data", t => {
 //   runDbBuild()
@@ -23,8 +22,9 @@ const postData = require("../queries/post-data");
 // }); })
 
 
-describe("Test getDishData", () => {
+describe("Test getDishData, has prefilled data in databse from build database", () => {
   test(`getDishData should retrieve data`, async () => {
+    
     await expect(getDishData.getDishListings()).resolves.toBeTruthy();;
    
   });
