@@ -32,15 +32,26 @@
   {{/if}}
 </div>
 
-<button>
-  {{#if (compare ../item 'dish')}}
-  Claim
-  {{/if}}
+<form class='item-form' method="POST" action="/{{../item}}-action">
+  <label class='item-form__name' for="item-form__name">Please give your name:
+    <input id='item-form__name' type="text" required>
+  </label>
+  <input type="hidden" value="{{this.id}}">
+  <input type="hidden" value="{{this.id}}">
+  <input type="hidden" value="{{this.id}}">
+  <input type="hidden" value="{{this.id}}">
 
-  {{#if (compare ../item 'community')}}
-  Join
-  {{/if}}
-</button>
+
+  <button action="submit">
+    {{#if (compare ../item 'dish')}}
+    Claim
+    {{/if}}
+
+    {{#if (compare ../item 'community')}}
+    Join
+    {{/if}}
+  </button>
+</form>
 {{else}}
 <h3>Sorry, there seems to be nothing here.</h3>
 {{/each}}

@@ -10,12 +10,12 @@ const getDishListings = param => {
   }
 };
 
-const getSpecificDish = ID => {
-  if (typeof ID !== "number") {
+const getSpecificDish = id => {
+  if (typeof id !== "number") {
     throw Error("Invalid argument, should be an integer");
   } else {
     return db
-      .query("SELECT * FROM dishes WHERE dishID = $1", [ID])
+      .query("SELECT * FROM dishes WHERE id = $1", [id])
       .then(response => {
         return response.rows;
       });
