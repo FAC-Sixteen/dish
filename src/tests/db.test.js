@@ -1,4 +1,5 @@
-const app = require("../app.js");
+/* eslint-disable no-undef */
+
 require("dotenv").config();
 const db = require("../model/db_connection");
 const build = require("../model/db_build");
