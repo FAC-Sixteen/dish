@@ -93,7 +93,7 @@ router.get("/:item-add", (req, res) => {
 })
 
 //Info pages routes
-router.get("/:item/:ID", (req, res) => {
+router.get("/:item-:ID", (req, res) => {
   const {
     item,
     ID
@@ -159,14 +159,13 @@ router.post("/:item-add", (req, res) => {
 
   // console.log(item, "this is the item posted");
   // console.log(req.body, "this is the req body");
-if (item === "dish" ){
-  postData.postSpecificDish(req.body)
-  res.redirect(301, "/dish-list-success")
-}
-else if (item === "community" ){
-  postData.postSpecificCommunity(req.body)
-  res.redirect(301, "/community-add-success")
-}
+  if (item === "dish") {
+    postData.postSpecificDish(req.body)
+    res.redirect(301, "/dish-list-success")
+  } else if (item === "community") {
+    postData.postSpecificCommunity(req.body)
+    res.redirect(301, "/community-add-success")
+  }
 
 });
 
