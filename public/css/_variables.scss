@@ -3,7 +3,7 @@ $font-color: #16191D;
 $font-color-light: #4C5866;
 $default-red: #AA0808;
 $dark-red: #610505;
-$background-color: #E5E5E5;
+$background-color: #F9FAFB;
 $input-grey: #E2E5E9;
 $accent-yellow: #F8C154;
 $accent-green: #45BA96;
@@ -63,6 +63,7 @@ $small-size: 0.875em;
 }
 
 @mixin menuLink {
+    background-color: $background-color;
     color: $default-red;
     text-decoration: underline;
     height: 40px;
@@ -70,4 +71,5 @@ $small-size: 0.875em;
     font-size: $h4-size;
     font-weight: lighter;
     letter-spacing: 1px;
+    border: none;
 }

@@ -12,6 +12,18 @@ a {
 }
 
 // HOME and INFO pages - Anna
+.homepage-info {
+    color: $accent-yellow;
+    font-size: $h4-size;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.homepage-tagline {
+    font-family: $decorative-font;
+    color: $dark-red;
+    font-size: $h2-size;
+}
 
 .header {
     color: $default-red;
@@ -38,6 +50,24 @@ a {
 .login-options__register {
     text-transform: uppercase;
 
+}
+
+.about-dish__heading {
+    font-size: $h3-size;
+    font-family: $decorative-font;
+}
+
+.about-dish__logo {
+    @include mediumLogo();
+}
+
+.return-link {
+    text-decoration: underline;
+    color: $font-color;
+}
+
+.main-logo {
+    @include bigLogo();
 }
 
 // DISH PAGE - Sam
