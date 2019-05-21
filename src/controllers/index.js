@@ -72,7 +72,7 @@ router.get("/:item-listings", (req, res) => {
   }
 })
 
-//Add pages routes 
+//Add pages routes
 router.get("/:item-add", (req, res) => {
   const {
     item
@@ -93,7 +93,7 @@ router.get("/:item-add", (req, res) => {
 })
 
 //Info pages routes
-router.get("/:item/:ID", (req, res) => {
+router.get("/:item-:ID", (req, res) => {
   const {
     item,
     ID

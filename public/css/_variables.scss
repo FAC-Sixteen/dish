@@ -1,9 +1,9 @@
-//colors
+
 $font-color: #16191D;
 $font-color-light: #4C5866;
 $default-red: #AA0808;
 $dark-red: #610505;
-$background-color: #E5E5E5;
+$background-color: #f9fafb;
 $input-grey: #E2E5E9;
 $accent-yellow: #F8C154;
 $accent-green: #45BA96;
@@ -50,6 +50,19 @@ $small-size: 0.875em;
 
 //buttons & links
 @mixin redButton {
+    background-color: $default-red;
+    color: $background-color;
+    border-radius: 5px;
+    text-transform: uppercase;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    height: 40px;
+    width: 145px;
+    font-size: $h4-size;
+    font-weight: lighter;
+    letter-spacing: 1px;
+}
+
+@mixin redFileUploadButton {
     background-color: $default-red;
     color: $background-color;
     border-radius: 5px;

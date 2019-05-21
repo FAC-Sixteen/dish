@@ -1,3 +1,5 @@
+//SASS autocompile
+
 @import './variables';
 
 body {
@@ -31,6 +33,10 @@ a {
     @include redButton;
 }
 
+.red-file-upload-button {
+    @include redFileUploadButton;
+}
+
 .menu-link {
     @include menuLink;
 }
@@ -44,3 +50,11 @@ a {
 
 
 // CREATE COMMUNITY FORM PAGE - Bobby
+
+.create-header {
+    font-size: $h2-size;
+}
+
+.form-input-labels {
+  font-size: $h4-size;
+}
