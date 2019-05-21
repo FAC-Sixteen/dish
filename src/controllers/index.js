@@ -31,8 +31,9 @@ router.post("/:item-add", (req, res, next) => {
       .then(() => res.redirect(301, "/dish-list-success"))
       .catch(err => next(err));
   } else if (item === "community") {
-    postSpecificCommunity(req.body);
-    res.redirect(301, "/community-add-success");
+    postSpecificCommunity(req.body)
+      .then(() => res.redirect(301, "/community-list-success"))
+      .catch(err => next(err));
   }
 });
 
@@ -48,7 +49,7 @@ router.get("/:item-:action-:outcome", (req, res) => {
 
 // Listings pages routes
 
-router.get("/:item-listings", (req, res) => {
+router.get("/:item-listings", (req, res, next) => {
   const { item } = req.params;
   if (item === "dish") {
     getDishListings()
@@ -59,9 +60,7 @@ router.get("/:item-listings", (req, res) => {
           data: response
         });
       })
-      .catch(err => {
-        res.send("Error 500: ", err);
-      });
+      .catch(err => next(err));
   } else if (item === "community") {
     getCommunityListings()
       .then(response => {
@@ -71,16 +70,14 @@ router.get("/:item-listings", (req, res) => {
           data: response
         });
       })
-      .catch(err => {
-        res.send("Error 500", err);
-      });
+      .catch(err => next(err));
   } else {
-    res.send("Error 404");
+    next();
   }
 });
 
 //Add pages routes
-router.get("/:item-add", (req, res) => {
+router.get("/:item-add", (req, res, next) => {
   const { item } = req.params;
   if (item === "dish") {
     res.render("add", {
@@ -93,12 +90,12 @@ router.get("/:item-add", (req, res) => {
       type: "add"
     });
   } else {
-    res.send("Error 404");
+    next();
   }
 });
 
 //Info pages routes
-router.get("/:item/:ID", (req, res) => {
+router.get("/:item/:ID", (req, res, next) => {
   const { item, ID } = req.params;
   if (item === "dish") {
     getSpecificDish(ID)
@@ -109,9 +106,7 @@ router.get("/:item/:ID", (req, res) => {
           data: response
         });
       })
-      .catch(err => {
-        res.send("Error 500", err);
-      });
+      .catch(err => next(err));
   } else if (item === "community") {
     getSpecificCommunity(ID)
       .then(response => {
@@ -121,11 +116,9 @@ router.get("/:item/:ID", (req, res) => {
           data: response
         });
       })
-      .catch(err => {
-        res.send("Error 500", err);
-      });
+      .catch(err => next(err));
   } else {
-    res.send("Error 404");
+    next();
   }
 });
 
