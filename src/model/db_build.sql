@@ -3,7 +3,7 @@ BEGIN;
 DROP TABLE IF EXISTS  users, communities, dishes, transactions CASCADE;
 DROP TYPE IF EXISTS transaction_category CASCADE;
 
-CREATE TYPE transaction_category AS ENUM ('claim', 'dish');
+CREATE TYPE transaction_category AS ENUM ('claim', 'dish', 'join');
 
 CREATE TABLE users (
 id SERIAL PRIMARY KEY,

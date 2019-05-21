@@ -7,7 +7,9 @@ const router = express.Router();
 const {
   postSpecificCommunity,
   postSpecificDish
-} = require("../queries/addItem.js/index.js");
+} = require("../queries/addItem");
+
+const { claimDish, joinCommunity } = require("../queries/actionItem");
 
 const { getDishListings, getSpecificDish } = require("../queries/getDishData");
 
@@ -40,11 +42,11 @@ router.post("/:item-add", (req, res, next) => {
 router.post("/:item-action", (req, res, next) => {
   const { item } = req.params;
   if (item === "dish") {
-    postSpecificDish(req.body)
+    claimDish(req.body, "claim")
       .then(() => res.redirect(301, "/dish-claim-success"))
       .catch(err => next(err));
   } else if (item === "community") {
-    postSpecificCommunity(req.body)
+    joinCommunity(req.body, "join")
       .then(() => res.redirect(301, "/community-join-success"))
       .catch(err => next(err));
   }
