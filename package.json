@@ -4,7 +4,7 @@
   "description": "Team Dish ===",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "NODE_ENV=test jest --expand",
     "start": "node src/index.js",
     "go": "nodemon src/index.js",
     "coverage": "jest --coverage",
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/FAC-Sixteen/dish#readme",
   "devDependencies": {
-    "coveralls": "^3.0.3",
+    "codecov": "^3.5.0",
     "eslint": "^5.16.0",
     "istanbul": "^0.4.5",
     "jest": "^24.8.0",
