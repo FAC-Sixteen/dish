@@ -9,11 +9,10 @@
     </div>
     <div class="card__teaser">
         <div class="card-options">
-            <button class="card-options__action">{{item}}</button>
-             {{#if (compare item 'dish')}}
-           <a href="/{{item}}/{{dishid}}" ><button class="card-options__more-info">More Info</button></a>
-             {{else}}
-            <a href="/{{item}}/{{communityid}}"><button class="card-options__more-info">More Info</button></a>  
+            {{#if (compare item 'dish')}}
+            <a href="/{{item}}/{{dishid}}"><button class="card-options__more-info">More Info</button></a>
+            {{else}}
+            <a href="/{{item}}/{{communityid}}"><button class="card-options__more-info">More Info</button></a>
             {{/if}}
         </div>
         <p>{{teaser}}</p>
