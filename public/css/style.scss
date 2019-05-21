@@ -66,9 +66,14 @@ a {
     color: $font-color;
 }
 
-.main-logo {
-    @include bigLogo();
+.main-logo-container {
+    @include alignCenter();
+
+    .main-logo {
+        @include bigLogo();
+    }
 }
+
 
 // DISH PAGE - Sam
 

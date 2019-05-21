@@ -1,4 +1,3 @@
-//colors
 $font-color: #16191D;
 $font-color-light: #4C5866;
 $default-red: #AA0808;
@@ -72,4 +71,10 @@ $small-size: 0.875em;
     font-weight: lighter;
     letter-spacing: 1px;
     border: none;
+}
+
+@mixin alignCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

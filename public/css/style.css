@@ -82,7 +82,19 @@ a {
   color: #16191D;
 }
 
-.main-logo {
+.main-logo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main-logo-container .main-logo {
   height: 145px;
   width: 145px;
 }
