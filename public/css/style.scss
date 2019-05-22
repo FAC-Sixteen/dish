@@ -1,0 +1,127 @@
+//SASS autocompile
+
+@import './variables';
+
+body {
+    background-color: $background-color;
+    font-family: $system-font;
+    font-size: $regular-size;
+    color: $font-color;
+}
+
+main {
+    padding: $base;
+}
+
+.footer {
+    position: sticky;
+    font-size: $small-size;
+    margin: 0 $base $base;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.more-info {
+    display: flex;
+    justify-content: flex-end;
+    color: $accent-yellow;
+    font-size: $h4-size;
+    cursor: pointer;
+
+    p {
+        text-decoration: underline;
+    }
+}
+
+.homepage {
+    @include alignCenter();
+    flex-direction: column;
+}
+
+.homepage__logo {
+    @include bigLogo();
+    margin: $base 0 0.5 * $base 0;
+}
+
+.homepage__tagline {
+    font-family: $decorative-font;
+    color: $dark-red;
+    font-size: $h2-size;
+    text-align: right;
+    margin: 0.5 * $base 0 $base 0;
+}
+
+.header {
+    color: $default-red;
+    font-family: $decorative-font;
+    font-size: $h1-size;
+    cursor: pointer;
+}
+
+.red-button {
+    @include redButton;
+}
+
+.red-file-upload-button {
+    @include redFileUploadButton;
+}
+
+.menu-link {
+    @include menuLink;
+}
+
+.login-options {
+    flex-direction: column;
+    @include alignCenter();
+}
+
+.login-options__login {
+    margin-bottom: 0.5 * $base;
+}
+
+.login-options__register {
+    margin-top: 0.5 * $base;
+    text-transform: uppercase;
+}
+
+.about-dish__heading {
+    font-size: $h3-size;
+    font-family: $decorative-font;
+}
+
+.about-dish__logo {
+    @include mediumLogo();
+}
+
+.return-link {
+    text-decoration: underline;
+    color: $font-color;
+}
+
+.main-logo-container {
+    @include alignCenter();
+
+    .main-logo {
+        @include bigLogo();
+    }
+}
+
+
+// DISH PAGE - Sam
+
+
+// CREATE COMMUNITY FORM PAGE - Bobby
+
+.create-header {
+    font-size: $h2-size;
+}
+
+.form-input-labels {
+    font-size: $h4-size;
+}
