@@ -7,16 +7,7 @@ body {
 }
 
 main {
-  height: 85vh;
   padding: 1.5em;
-}
-
-.footer {
-  position: absolute;
-  bottom: 1.5em;
-  left: 1.5em;
-  font-size: 0.875em;
-  margin-top: 1.5em;
 }
 
 a {
@@ -28,12 +19,8 @@ button {
 }
 
 .more-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
   color: #F8C154;
   font-size: 1.125em;
   cursor: pointer;
@@ -44,19 +31,10 @@ button {
 }
 
 .homepage {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .homepage__logo {
@@ -80,34 +58,6 @@ button {
   cursor: pointer;
 }
 
-.red-button {
-  background-color: #AA0808;
-  color: #F9FAFB;
-  border-radius: 5px;
-  text-transform: uppercase;
-  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  height: 40px;
-  width: 145px;
-  font-size: 1.125em;
-  font-weight: lighter;
-  letter-spacing: 1px;
-}
-
-.red-file-upload-button {
-  background-color: #AA0808;
-  color: #F9FAFB;
-  border-radius: 5px;
-  text-transform: uppercase;
-  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  height: 40px;
-  width: 145px;
-  font-size: 1.125em;
-  font-weight: lighter;
-  letter-spacing: 1px;
-}
-
 .menu-link {
   background-color: #F9FAFB;
   color: #AA0808;
@@ -121,19 +71,10 @@ button {
 }
 
 .login-options {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  flex-direction: column;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .login-options__login {
@@ -145,35 +86,15 @@ button {
   text-transform: uppercase;
 }
 
-.about-dish__heading {
-  font-size: 1.5em;
-  font-family: "Abril Fatface", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-.about-dish__logo {
-  height: 130px;
-  width: 130px;
-}
-
-.about-dish__description {
-  padding-bottom: 1.5em;
-}
-
 .return-link {
   text-decoration: underline;
   color: #16191D;
 }
 
 .main-logo-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .main-logo-container .main-logo {
@@ -188,15 +109,9 @@ button {
 }
 
 .about-dish__intro {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  justify-content: space-between;
+  align-items: flex-end;
   padding-bottom: 1.5em;
 }
 
@@ -205,81 +120,79 @@ button {
   width: 110px;
 }
 
-.main-menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin: 1.5em 0;
+.about-dish__heading {
+  font-size: 1.5em;
+  font-family: "Abril Fatface", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-details {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+.about-dish__logo {
+  height: 110px;
+  width: 110px;
 }
 
-.main-menu__options {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.main-menu__options li {
-  margin: 1em 0;
-}
-
-summary {
-  background-color: #AA0808;
-  color: #F9FAFB;
-  border-radius: 5px;
-  text-transform: uppercase;
-  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  height: 40px;
-  width: 145px;
+.about-dish__description {
+  padding-bottom: 1.5em;
   font-size: 1.125em;
-  font-weight: lighter;
-  letter-spacing: 1px;
-  width: 60vw;
-  text-align: center;
-  line-height: 40px;
 }
 
-summary::-webkit-details-marker {
-  display: none;
+.fa-arrow-left {
+  padding-right: 0.5em;
 }
 
-.food-options {
-  margin-bottom: 110px;
+.add-form {
+  display: flex;
+  flex-direction: column;
 }
 
-.food-options[open] {
-  margin-bottom: 0;
+.add-form__input {
+  width: 100%;
+  background: #E2E5E9;
+  border-left: #E2E5E9;
+  border-top: #E2E5E9;
+  border-right: #E2E5E9;
+  border-bottom: 1px solid #AA0808;
+  min-height: 45px;
+  margin-bottom: 1em;
 }
 
 .create-header {
-  font-size: 2em;
+  font-size: 1.5em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
 }
 
 .form-input-labels {
   font-size: 1.125em;
 }
-/*# sourceMappingURL=style.css.map */
+
+.red-button {
+  background-color: #AA0808;
+  color: #F9FAFB;
+  border-radius: 5px;
+  text-transform: uppercase;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  height: 40px;
+  width: 145px;
+  font-size: 1.125em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  align-self: center;
+}
+
+.red-file-upload-button {
+  background-color: #AA0808;
+  color: #F9FAFB;
+  border-radius: 5px;
+  text-transform: uppercase;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  height: 40px;
+  width: 145px;
+  font-size: 1.125em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  width: 100%;
+  height: 272px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

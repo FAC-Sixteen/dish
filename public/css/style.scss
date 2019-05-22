@@ -11,17 +11,7 @@ body {
 }
 
 main {
-    height: 85vh;
     padding: $base;
-}
-
-.footer {
-    position: absolute;
-    bottom: $base;
-    left: $base;
-    font-size: $small-size;
-    margin-top: $base;
-    // height: 15vh;
 }
 
 a {
@@ -51,7 +41,7 @@ button {
 
 .homepage__logo {
     @include bigLogo();
-    margin: $base 0 0.5 * $base 0;
+    margin: $base 0 $half-base 0;
 }
 
 .homepage__tagline {
@@ -59,7 +49,7 @@ button {
     color: $dark-red;
     font-size: $h2-size;
     text-align: right;
-    margin: 0.5 * $base 0 $base 0;
+    margin: $half-base 0 $base 0;
 }
 
 .header {
@@ -67,14 +57,6 @@ button {
     font-family: $decorative-font;
     font-size: $h1-size;
     cursor: pointer;
-}
-
-.red-button {
-    @include redButton;
-}
-
-.red-file-upload-button {
-    @include redFileUploadButton;
 }
 
 .menu-link {
@@ -87,25 +69,12 @@ button {
 }
 
 .login-options__login {
-    margin-bottom: 0.5 * $base;
+    margin-bottom: $half-base;
 }
 
 .login-options__register {
     margin-top: 0.5 * $base;
     text-transform: uppercase;
-}
-
-.about-dish__heading {
-    font-size: $h3-size;
-    font-family: $decorative-font;
-}
-
-.about-dish__logo {
-    @include mediumLogo();
-}
-
-.about-dish__description {
-    padding-bottom: $base;
 }
 
 .return-link {
@@ -124,72 +93,77 @@ button {
 // ABOUT pages
 
 .about-dish__heading {
-    color: $font-color;
-    font-family: $decorative-font;
-    font-size: $h3-size;
+  color: $font-color;
+  font-family: $decorative-font;
+  font-size: $h3-size;
 }
 
 .about-dish__intro {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding-bottom: $base;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: $base;
+}
+
+.about-dish__logo {
+  @include smallLogo();
+}
+
+.about-dish__heading {
+    font-size: $h3-size;
+    font-family: $decorative-font;
 }
 
 .about-dish__logo {
     @include smallLogo();
 }
 
-//MAIN PAGE 
-
-.main-menu {
-    @include alignCenter();
-    flex-direction: column;
-    margin: $base 0;
+.about-dish__description {
+  padding-bottom: $base;
+  font-size: $h4-size;
 }
 
-details {
-    flex-direction: column;
+.fa-arrow-left {
+  padding-right: $tiny;
 }
 
-.main-menu__options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.main-menu__options li {
-    margin: $small 0;
-}
-
-summary {
-    @include redButton();
-    width: 60vw;
-    text-align: center;
-    line-height: 40px;
-}
-
-summary::-webkit-details-marker {
-    display: none;
-}
-
-.food-options {
-    margin-bottom: 110px;
-}
-
-.food-options[open] {
-    margin-bottom: 0;
-}
 
 // DISH PAGE - Sam
 
 
 // CREATE COMMUNITY FORM PAGE - Bobby
 
+.add-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-form__input {
+  @include userInput();
+  min-height: 45px;
+  margin-bottom: $small;
+}
+
 .create-header {
-    font-size: $h2-size;
+    font-size: $h3-size;
+    margin-top: $tiny;
+    margin-bottom: $small;
 }
 
 .form-input-labels {
     font-size: $h4-size;
+}
+
+.red-button {
+    @include redButton;
+    align-self: center;
+}
+
+.red-file-upload-button {
+    @include redFileUploadButton;
+    width: 100%;
+    height: 272px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

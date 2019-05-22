@@ -97,3 +97,12 @@ $x-large: 4em;
     align-items: center;
     justify-content: center;
 }
+
+@mixin userInput {
+  width: 100%;
+  background: $input-grey;
+  border-left: $input-grey;
+  border-top: $input-grey;
+  border-right: $input-grey;
+  border-bottom: 1px solid $default-red;
+}

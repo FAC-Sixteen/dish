@@ -1,20 +1,20 @@
 <h2 class ="create-header">Create a {{ item }}</h2>
 
-<form action="{{ item }}-add" method="post">
-  <div class="img-placeholder">
-  </div>
-  <input type="file" class="red-file-upload-button">
+<form class="add-form" action="{{ item }}-add" method="post">
+  <!-- <div class="img-placeholder">
+  </div> -->
+  <!-- <input type="file" class="red-file-upload-button"> -->
 
   <label for="imgUrl" class="form-input-labels">Image URL<sup class="required-asterisk">*</sup></label>
-  <input type="text" name="imgUrl" id="imgUrl" required>
+  <input class="add-form__input" type="text" name="imgUrl" id="imgUrl" required>
 
   <label for="title" class="form-input-labels">Name your {{ item }}<sup class="required-asterisk">*</sup></label>
-  <input type="text" name="title" id="title" required>
+  <input class="add-form__input" type="text" name="title" id="title" required>
 
   {{#if (compare item 'dish')}}
 
   <label for="teaser" class="form-input-labels">Write a one-liner about your dish<sup class="required-asterisk">*</sup></label>
-  <input type="text" name="teaser" id="teaser" required>
+  <input class="add-form__input" type="text" name="teaser" id="teaser" required>
 
   <label for="spiciness" class="form-input-labels">Spiciness</label>
   <select name="spiciness" id="spiciness" required>
@@ -78,9 +78,11 @@
 
 
   <label for="description">Describe your community</label>
-  <textarea name="description" id="description" rows="5" required></textarea>
+  <textarea class="add-form__input" name="description" id="description" rows="8" required></textarea>
 
-  <select name="borough" id="borough" required>
+  <label for="borough">Where is your community?<sup class="required-asterisk">*</sup></label>
+  <select class="add-form__input" name="borough" id="borough" required>
+    <option value="">--Please select borough--</option>
     <option value="">lambeth</option>
     <option value="">havering</option>
     <option value="">bexley</option>
