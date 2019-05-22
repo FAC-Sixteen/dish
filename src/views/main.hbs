@@ -3,16 +3,19 @@
 </div>
 
 <nav class="main-menu">
-  <button class="red-button">Food</button>
-  <div class="food main-menu__options">
-    <a href="/dish-add" class="menu-link">I have leftovers!</a>
-    <a href="/dish-listings" class="menu-link">I need food!</a>
-  </div>
+  <details class="food-options">
+    <summary>Food</summary>
+    <ul class="main-menu__options">
+      <li> <a href="/dish-add" class="menu-link">I have leftovers!</a></li>
+      <li> <a href="/dish-listings" class="menu-link">I need food!</a></li>
+    </ul>
+  </details>
 
-  <button class="red-button">Community</button>
-  <div class="community main-menu__options">
-    <a href="/community-listings" class="menu-link">Join a community</a>
-    <a href="/community-add" class="menu-link">Create a community</a>
-  </div>
-
+  <details class="community-options">
+    <summary>Community</summary>
+    <ul class="main-menu__options">
+      <li><a href="/community-listings" class="menu-link">Join a community</a></li>
+      <li><a href="/community-add" class="menu-link">Create a community</a></li>
+    </ul>
+  </details>
 </nav>

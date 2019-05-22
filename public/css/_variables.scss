@@ -32,6 +32,7 @@ $small-size: 0.875em;
 //spacing
 $tiny: 0.5em;
 $small: 1em;
+$half-base: 0.75em;
 $base: 1.5em;
 $large: 3em;
 $x-large: 4em;
@@ -95,4 +96,13 @@ $x-large: 4em;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@mixin userInput {
+  width: 100%;
+  background: $input-grey;
+  border-left: $input-grey;
+  border-top: $input-grey;
+  border-right: $input-grey;
+  border-bottom: 1px solid $default-red;
 }
