@@ -10,12 +10,12 @@ const getCommunityListings = param => {
   }
 };
 
-const getSpecificCommunity = ID => {
-  if (typeof ID !== "number") {
+const getSpecificCommunity = id => {
+  if (typeof id !== "number") {
     throw Error("Invalid argument, should be an integer");
   } else {
     return db
-      .query("SELECT * FROM communities WHERE communityID = $1", [ID])
+      .query("SELECT * FROM communities WHERE id = $1", [id])
       .then(response => {
         return response.rows;
       });
