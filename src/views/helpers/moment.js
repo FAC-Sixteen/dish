@@ -1,7 +1,6 @@
 const moment = require("moment");
 
 module.exports = timeCooked => {
-  console.log(timeCooked);
   const year = timeCooked.getFullYear();
   const month =
     timeCooked.getMonth() < 10

@@ -43,11 +43,15 @@ router.post("/:item-action", (req, res, next) => {
   const { item } = req.params;
   if (item === "dish") {
     claimDish(req.body, "claim")
-      .then(() => res.redirect(301, "/dish-claim-success"))
+      .then(() => {
+        res.render("success", {item, action: "claim"});
+      })
       .catch(err => next(err));
   } else if (item === "community") {
     joinCommunity(req.body, "join")
-      .then(() => res.redirect(301, "/community-join-success"))
+      .then(() => {
+        res.render("success", {item, action: "join"});
+      })
       .catch(err => next(err));
   }
 });
