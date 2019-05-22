@@ -1,37 +1,50 @@
-<h1>{{titlecase item }} Information</h1>
-
 {{#each data}}
 <div class="item-info">
   <img class="item-info__image" src={{this.image}}>
 
-  {{#if (compare ../item 'dish')}}
-  {{> dietary-info this}}
-  {{/if}}
+  <section class="item-info__container">
 
-  {{#if (compare ../item 'community')}}
-  <p class="item-info__additional-info">Community info</p>
-  {{/if}}
 
-  <h3 class="item-info__name">{{this.name}}</h3>
-  <p class="item-info__teaser">{{this.teaser}}</p>
-  <p class="item-info__user">{{this.user}}</p>
 
-  {{#if (compare ../item 'dish')}}
-  <div class="item-info__info">
-    <p class="item-info__info__servings">Servings: {{this.servings}}</p>
-    <p class="item-info__info__cooked">Cooked: {{this.cooked}}</p>
-    <p class="item-info__info__description">{{this.description}}</p>
-  </div>
-  {{/if}}
+    <h3 class="item-info__name">{{this.name}}</h3>
 
-  {{#if (compare ../item 'community')}}
-  <div class="item-info__info">
-    <p class="item-info__info__location">Location: {{this.location}}</p>
-    <p class="item-info__info__description">{{this.description}}</p>
-  </div>
-  {{/if}}
+
+
+    <p class="item-info__teaser">{{this.teaser}}</p>
+    <p class="item-info__user">{{this.user}}</p>
+
+    {{#if (compare ../item 'dish')}}
+    {{> dietary-info this}}
+    {{/if}}
+
+    {{#if (compare ../item 'dish')}}
+    <div class="item-info__info">
+      {{!-- <p class="item-info__info__servings">Servings: {{this.portions}}</p> --}}
+      <ul class="item-info__info__servings">Servings left:
+        {{#if (greaterThanEqualTo portions_remaining 1)}}
+        <li class='dietary-info__dietary__vegetarian'>🍽</li>
+        {{/if}}
+        {{#if (greaterThanEqualTo portions_remaining 2)}}
+        <li class='dietary-info__dietary__vegan'>🍽</li>
+        {{/if}}
+        {{#if (greaterThanEqualTo portions_remaining 3)}}
+        <li class='dietary-info__dietary__glutenFree'>🍽</li>
+        {{/if}}
+      </ul>
+      <p class="item-info__info__cooked">Cooked: {{moment this.date_cooked}}</p>
+      <p class="item-info__info__description">{{this.description}}</p>
+    </div>
+    {{/if}}
+
+    {{#if (compare ../item 'community')}}
+    <div class="item-info__info">
+      <p class="item-info__info__location">Location: {{this.location}}</p>
+      <p class="item-info__info__description">{{this.description}}</p>
+    </div>
+    {{/if}}
 </div>
 
+</section>
 
 <form class='item-form' method="POST" action="/{{../item}}-action">
   {{!-- <label class='item-form__name' for="item-form__name">Please give your name:
