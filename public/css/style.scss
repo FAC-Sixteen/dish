@@ -57,6 +57,7 @@ button {
     font-family: $decorative-font;
     font-size: $h1-size;
     cursor: pointer;
+    margin-bottom: $tiny;
 }
 
 .menu-link {
@@ -146,12 +147,15 @@ button {
 
 .create-header {
     font-size: $h3-size;
-    margin-top: $tiny;
     margin-bottom: $small;
 }
 
 .form-input-labels {
     font-size: $h4-size;
+}
+
+.form-input-labels__dietary {
+  align-self: flex-start;
 }
 
 .red-button {
