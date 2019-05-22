@@ -1,9 +1,10 @@
 <h2 class ="create-header">Create a {{ item }}</h2>
 
-<form class="add-form" action="{{ item }}-add" method="post">
-  <!-- <div class="img-placeholder">
-  </div> -->
-  <!-- <input type="file" class="red-file-upload-button"> -->
+<form action="{{ item }}-add" method="post">
+  <div class="img-placeholder">
+  </div>
+
+  <input type="file" class="red-file-upload-button">
 
   <label for="imgUrl" class="form-input-labels">Image URL<sup class="required-asterisk">*</sup></label>
   <input class="add-form__input" type="text" name="imgUrl" id="imgUrl" required>

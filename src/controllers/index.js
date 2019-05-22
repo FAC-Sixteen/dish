@@ -7,7 +7,9 @@ const router = express.Router();
 const {
   postSpecificCommunity,
   postSpecificDish
-} = require("../queries/post-data.js");
+} = require("../queries/addItem");
+
+const { claimDish, joinCommunity } = require("../queries/actionItem");
 
 const { getDishListings, getSpecificDish } = require("../queries/getDishData");
 
@@ -33,6 +35,19 @@ router.post("/:item-add", (req, res, next) => {
   } else if (item === "community") {
     postSpecificCommunity(req.body)
       .then(() => res.redirect(301, "/community-list-success"))
+      .catch(err => next(err));
+  }
+});
+
+router.post("/:item-action", (req, res, next) => {
+  const { item } = req.params;
+  if (item === "dish") {
+    claimDish(req.body, "claim")
+      .then(() => res.redirect(301, "/dish-claim-success"))
+      .catch(err => next(err));
+  } else if (item === "community") {
+    joinCommunity(req.body, "join")
+      .then(() => res.redirect(301, "/community-join-success"))
       .catch(err => next(err));
   }
 });
@@ -95,10 +110,10 @@ router.get("/:item-add", (req, res, next) => {
 });
 
 //Info pages routes
-router.get("/:item/:ID", (req, res, next) => {
+router.get("/:item-:ID", (req, res, next) => {
   const { item, ID } = req.params;
   if (item === "dish") {
-    getSpecificDish(ID)
+    getSpecificDish(parseInt(ID))
       .then(response => {
         res.render("info", {
           type: "info",
@@ -108,7 +123,7 @@ router.get("/:item/:ID", (req, res, next) => {
       })
       .catch(err => next(err));
   } else if (item === "community") {
-    getSpecificCommunity(ID)
+    getSpecificCommunity(parseInt(ID))
       .then(response => {
         res.render("info", {
           type: "info",

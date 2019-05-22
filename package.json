@@ -4,7 +4,7 @@
   "description": "Team Dish ===",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "NODE_ENV=test jest",
     "start": "node src/index.js",
     "go": "nodemon src/index.js",
     "coverage": "jest --coverage",
@@ -33,11 +33,12 @@
     "tape": "^4.10.1"
   },
   "dependencies": {
-    "dotenv": "^8.0.0",
     "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
     "env2": "^2.2.2",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2",
+    "moment": "^2.24.0",
     "path": "^0.12.7",
     "pg": "^7.11.0",
     "serve-favicon": "^2.5.0"

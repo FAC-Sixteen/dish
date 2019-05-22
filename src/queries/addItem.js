@@ -28,7 +28,7 @@ const postSpecificDish = data => {
 
   return db
     .query(
-      "INSERT INTO dishes(creatorID, communityID, name, teaser, description, portions, portions_remaining, date_cooked, collection_time, collection_location, image, vegetarian, vegan, glutenFree, nuts, dairy, halal, kosher, shellfish, spiciness) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING dishID, name, image",
+      "INSERT INTO dishes(creatorID, communityID, name, teaser, description, portions, portions_remaining, date_cooked, collection_time, collection_location, image, vegetarian, vegan, glutenFree, nuts, dairy, halal, kosher, shellfish, spiciness) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING id, name, image",
       [
         "2",
         "1",
@@ -54,7 +54,7 @@ const postSpecificDish = data => {
 const postSpecificCommunity = data => {
   return db
     .query(
-      "INSERT INTO communities(adminID, name, location, description, image) VALUES ($1, $2, $3, $4, $5) RETURNING communityID, name, image",
+      "INSERT INTO communities(adminID, name, location, description, image) VALUES ($1, $2, $3, $4, $5) RETURNING id, name, image",
       [2, data.title, data.borough, data.description, data.imgUrl]
     )
     .then(response => {
