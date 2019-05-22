@@ -1,127 +1,177 @@
 //SASS autocompile
 
-@import './variables';
+@import "./variables";
 
+* {
+  box-sizing: border-box;
+}
 body {
-    background-color: $background-color;
-    font-family: $system-font;
-    font-size: $regular-size;
-    color: $font-color;
+  background-color: $background-color;
+  font-family: $system-font;
+  font-size: $regular-size;
+  color: $font-color;
+  display: flex;
+  justify-content: center;
 }
 
 main {
-    padding: $base;
+  padding: $base;
+  width: 100vw;
+  max-width: 400px;
+  border: 2px solid $dark-red;
 }
 
 .footer {
-    position: sticky;
-    font-size: $small-size;
-    margin: 0 $base $base;
+  position: sticky;
+  font-size: $small-size;
+  margin: 0 $base $base;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .more-info {
-    display: flex;
-    justify-content: flex-end;
-    color: $accent-yellow;
-    font-size: $h4-size;
-    cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  color: $accent-yellow;
+  font-size: $h4-size;
+  cursor: pointer;
 
-    p {
-        text-decoration: underline;
-    }
+  p {
+    text-decoration: underline;
+  }
 }
 
 .homepage {
-    @include alignCenter();
-    flex-direction: column;
+  @include alignCenter();
+  flex-direction: column;
 }
 
 .homepage__logo {
-    @include bigLogo();
-    margin: $base 0 0.5 * $base 0;
+  @include bigLogo();
+  margin: $base 0 0.5 * $base 0;
 }
 
 .homepage__tagline {
-    font-family: $decorative-font;
-    color: $dark-red;
-    font-size: $h2-size;
-    text-align: right;
-    margin: 0.5 * $base 0 $base 0;
+  font-family: $decorative-font;
+  color: $dark-red;
+  font-size: $h2-size;
+  text-align: right;
+  margin: 0.5 * $base 0 $base 0;
 }
 
 .header {
-    color: $default-red;
-    font-family: $decorative-font;
-    font-size: $h1-size;
-    cursor: pointer;
+  color: $default-red;
+  font-family: $decorative-font;
+  font-size: $h1-size;
+  cursor: pointer;
 }
 
 .red-button {
-    @include redButton;
+  @include redButton;
 }
 
 .red-file-upload-button {
-    @include redFileUploadButton;
+  @include redFileUploadButton;
 }
 
 .menu-link {
-    @include menuLink;
+  @include menuLink;
 }
 
 .login-options {
-    flex-direction: column;
-    @include alignCenter();
+  flex-direction: column;
+  @include alignCenter();
 }
 
 .login-options__login {
-    margin-bottom: 0.5 * $base;
+  margin-bottom: 0.5 * $base;
 }
 
 .login-options__register {
-    margin-top: 0.5 * $base;
-    text-transform: uppercase;
+  margin-top: 0.5 * $base;
+  text-transform: uppercase;
 }
 
 .about-dish__heading {
-    font-size: $h3-size;
-    font-family: $decorative-font;
+  font-size: $h3-size;
+  font-family: $decorative-font;
 }
 
 .about-dish__logo {
-    @include mediumLogo();
+  @include mediumLogo();
 }
 
 .return-link {
-    text-decoration: underline;
-    color: $font-color;
+  text-decoration: underline;
+  color: $font-color;
 }
 
 .main-logo-container {
-    @include alignCenter();
+  @include alignCenter();
 
-    .main-logo {
-        @include bigLogo();
-    }
+  .main-logo {
+    @include bigLogo();
+  }
 }
-
 
 // DISH PAGE - Sam
 
+.dietary-info ul,
+.item-info__info__servings {
+  width: 100%;
+  display: flex;
+}
+
+.dietary-info ul li,
+.item-info__info__servings li {
+  margin: 0 0.25em;
+}
+
+.item-info {
+  width: 100%;
+}
+
+.item-info__name {
+  font-family: $decorative-font;
+  font-size: $h2-size;
+}
+
+.item-info__image {
+  margin-left: -$base;
+  width: calc(100% + #{2 * $base} - 0.5px);
+}
+
+.item-info__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.5em;
+}
+
+.item-info__info,
+.dietary-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0.25em;
+}
+
+.item-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
 
 // CREATE COMMUNITY FORM PAGE - Bobby
 
 .create-header {
-    font-size: $h2-size;
+  font-size: $h2-size;
 }
 
 .form-input-labels {
-    font-size: $h4-size;
+  font-size: $h4-size;
 }
