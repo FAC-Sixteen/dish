@@ -1,10 +1,9 @@
 <h2 class ="create-header">Create a {{ item }}</h2>
 
-<form action="{{ item }}-add" method="post">
-  <div class="img-placeholder">
-  </div>
-
-  <input type="file" class="red-file-upload-button">
+<form class="add-form" action="{{ item }}-add" method="post">
+  <!-- <div class="img-placeholder">
+  </div> -->
+  <!-- <input type="file" class="red-file-upload-button"> -->
 
   <label for="imgUrl" class="form-input-labels">Image URL<sup class="required-asterisk">*</sup></label>
   <input class="add-form__input" type="text" name="imgUrl" id="imgUrl" required>
@@ -28,7 +27,7 @@
 
   <h3 class="form-input-labels">Dietary information</h3>
 
-  <label for="vegetarian">Vegetarian</label>
+  <label class="form-input-labels__dietary" for="vegetarian">Vegetarian</label>
   <input type="checkbox" name="vegetarian" id="vegetarian" value=1>
 
   <label for="vegan">Vegan</label>

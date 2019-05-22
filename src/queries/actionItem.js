@@ -3,7 +3,7 @@ const db = require("../model/db_connection.js");
 const claimDish = (data, category) => {
   return db
     .query(
-      "INSERT INTO transactions(category, userID, communityID, dishID) VALUES ($1, $2, $3, $4) RETURNING id",
+      "INSERT INTO transactions(category, userID, communityID, dishID) VALUES ($1, $2, $3, $4) RETURNING dishID",
       [
         category,
         parseInt(data.userID),

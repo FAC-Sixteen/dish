@@ -43,8 +43,12 @@ router.post("/:item-action", (req, res, next) => {
   const { item } = req.params;
   if (item === "dish") {
     claimDish(req.body, "claim")
-      .then(() => {
-        res.render("success", {item, action: "claim"});
+    .then(response => {
+      return getSpecificDish(response[0].dishid);
+    })
+      .then(data => {
+        console.log("Here's the dish data", data);
+        res.render("success", {item, action: "claim", data: data[0]});
       })
       .catch(err => next(err));
   } else if (item === "community") {
