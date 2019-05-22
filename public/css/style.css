@@ -28,8 +28,12 @@ button {
 }
 
 .more-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   color: #F8C154;
   font-size: 1.125em;
   cursor: pointer;
@@ -40,10 +44,19 @@ button {
 }
 
 .homepage {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .homepage__logo {
@@ -72,7 +85,8 @@ button {
   color: #F9FAFB;
   border-radius: 5px;
   text-transform: uppercase;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   height: 40px;
   width: 145px;
   font-size: 1.125em;
@@ -85,7 +99,8 @@ button {
   color: #F9FAFB;
   border-radius: 5px;
   text-transform: uppercase;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   height: 40px;
   width: 145px;
   font-size: 1.125em;
@@ -106,10 +121,19 @@ button {
 }
 
 .login-options {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .login-options__login {
@@ -141,9 +165,15 @@ button {
 }
 
 .main-logo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .main-logo-container .main-logo {
@@ -158,15 +188,91 @@ button {
 }
 
 .about-dish__intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   padding-bottom: 1.5em;
 }
 
 .about-dish__logo {
   height: 110px;
   width: 110px;
+}
+
+.main-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 1.5em 0;
+}
+
+details {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main-menu__options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-menu__options li {
+  margin: 1em 0;
+}
+
+summary {
+  background-color: #AA0808;
+  color: #F9FAFB;
+  border-radius: 5px;
+  text-transform: uppercase;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  height: 40px;
+  width: 145px;
+  font-size: 1.125em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  width: 60vw;
+  text-align: center;
+  line-height: 40px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.food-options {
+  margin-bottom: 110px;
+}
+
+.food-options[open] {
+  margin-bottom: 0;
 }
 
 .create-header {
@@ -176,3 +282,4 @@ button {
 .form-input-labels {
   font-size: 1.125em;
 }
+/*# sourceMappingURL=style.css.map */

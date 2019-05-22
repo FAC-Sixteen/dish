@@ -11,7 +11,7 @@ body {
 }
 
 main {
-  height: 85vh;
+    height: 85vh;
     padding: $base;
 }
 
@@ -105,7 +105,7 @@ button {
 }
 
 .about-dish__description {
-  padding-bottom: $base;
+    padding-bottom: $base;
 }
 
 .return-link {
@@ -124,22 +124,62 @@ button {
 // ABOUT pages
 
 .about-dish__heading {
-  color: $font-color;
-  font-family: $decorative-font;
-  font-size: $h3-size;
+    color: $font-color;
+    font-family: $decorative-font;
+    font-size: $h3-size;
 }
 
 .about-dish__intro {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding-bottom: $base;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: $base;
 }
 
 .about-dish__logo {
-  @include smallLogo();
+    @include smallLogo();
 }
 
+//MAIN PAGE 
+
+.main-menu {
+    @include alignCenter();
+    flex-direction: column;
+    margin: $base 0;
+}
+
+details {
+    flex-direction: column;
+}
+
+.main-menu__options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-menu__options li {
+    margin: $small 0;
+}
+
+summary {
+    @include redButton();
+    width: 60vw;
+    text-align: center;
+    line-height: 40px;
+}
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+.food-options {
+    margin-bottom: 110px;
+}
+
+.food-options[open] {
+    margin-bottom: 0;
+}
 
 // DISH PAGE - Sam
 
