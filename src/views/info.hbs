@@ -32,11 +32,11 @@
   {{/if}}
 </div>
 
+
 <form class='item-form' method="POST" action="/{{../item}}-action">
   {{!-- <label class='item-form__name' for="item-form__name">Please give your name:
     <input id='item-form__name' type="text" required>
   </label> --}}
-
 
   {{#if (compare ../item 'dish')}}
   <input type="hidden" value="{{this.id}}" name="dishID">
@@ -54,7 +54,7 @@
   <input type="hidden" value="1" name="userID">
 
 
-  <button action="submit">
+  <button class="red-button" action="submit">
     {{#if (compare ../item 'dish')}}
     Claim
     {{/if}}

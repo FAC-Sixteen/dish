@@ -1,3 +1,184 @@
-.main-menu__nav-content {
-  border: 1px solid black;
+body {
+  background-color: #F9FAFB;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1em;
+  color: #16191D;
 }
+
+main {
+  padding: 1.5em;
+}
+
+.footer {
+  position: -webkit-sticky;
+  position: sticky;
+  font-size: 0.875em;
+  margin: 0 1.5em 1.5em;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.more-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  color: #F8C154;
+  font-size: 1.125em;
+  cursor: pointer;
+}
+
+.more-info p {
+  text-decoration: underline;
+}
+
+.homepage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.homepage__logo {
+  height: 145px;
+  width: 145px;
+  margin: 1.5em 0 0.75em 0;
+}
+
+.homepage__tagline {
+  font-family: "Abril Fatface", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  color: #610505;
+  font-size: 2em;
+  text-align: right;
+  margin: 0.75em 0 1.5em 0;
+}
+
+.header {
+  color: #AA0808;
+  font-family: "Abril Fatface", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 2.75em;
+  cursor: pointer;
+}
+
+.red-button {
+  background-color: #AA0808;
+  color: #F9FAFB;
+  border-radius: 5px;
+  text-transform: uppercase;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  height: 40px;
+  width: 145px;
+  font-size: 1.125em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+}
+
+.red-file-upload-button {
+  background-color: #AA0808;
+  color: #F9FAFB;
+  border-radius: 5px;
+  text-transform: uppercase;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  height: 40px;
+  width: 145px;
+  font-size: 1.125em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+}
+
+.menu-link {
+  background-color: #F9FAFB;
+  color: #AA0808;
+  text-decoration: underline;
+  height: 40px;
+  width: 145px;
+  font-size: 1.125em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  border: none;
+}
+
+.login-options {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login-options__login {
+  margin-bottom: 0.75em;
+}
+
+.login-options__register {
+  margin-top: 0.75em;
+  text-transform: uppercase;
+}
+
+.about-dish__heading {
+  font-size: 1.5em;
+  font-family: "Abril Fatface", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.about-dish__logo {
+  height: 130px;
+  width: 130px;
+}
+
+.return-link {
+  text-decoration: underline;
+  color: #16191D;
+}
+
+.main-logo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.main-logo-container .main-logo {
+  height: 145px;
+  width: 145px;
+}
+
+.create-header {
+  font-size: 2em;
+}
+
+.form-input-labels {
+  font-size: 1.125em;
+}
+/*# sourceMappingURL=style.css.map */
