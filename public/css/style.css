@@ -352,8 +352,8 @@ summary::-webkit-details-marker {
 }
 
 .item-info__image {
-  margin-left: -1.5em;
-  width: calc(100% + 3em - 0.5px);
+  margin-left: calc(-1.5em + 0.5px);
+  width: calc(100% + 3em - 1px);
 }
 
 .item-info__container {

@@ -236,8 +236,8 @@ summary::-webkit-details-marker {
 }
 
 .item-info__image {
-  margin-left: -$base;
-  width: calc(100% + #{2 * $base} - 0.5px);
+  margin-left: calc(#{-$base} + 0.5px);
+  width: calc(100% + #{2 * $base} - 1px);
 }
 
 .item-info__container {
