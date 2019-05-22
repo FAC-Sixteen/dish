@@ -1,9 +1,18 @@
 <h1 class="success-title">Hooray!</h1>
 
-<h2 class="success-claim">You've claimed:</h2>
-<h3>{{ data.name }}</h3>
+<div class="success-card">
+  <img class="success-card_image" src="{{ data.image }}">
 
-<p>{{ data.collection_time }}</p>
-<p>{{ data.collection_location }}</p>
+  <div class="success-card__info">
 
-<a href="/dish-listings">See more food</a>
+<h2 class="success-message">You've claimed:</h2>
+<h3 class="success-dish">{{ data.name }}</h3>
+
+<p class="success-collection-time">{{ data.collection_time }}</p>
+<p class="success-collection-location">{{ data.collection_location }}</p>
+
+<a href="/" class='return-link'><i class="fas fa-arrow-left"></i>See more food</a>
+
+</div>
+
+</div>

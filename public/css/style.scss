@@ -1,56 +1,42 @@
 //SASS autocompile
 
-@import "./variables";
+@import './variables';
 
-* {
-  box-sizing: border-box;
-}
 body {
-  line-height: 1.3;
-  background-color: $background-color;
-  font-family: $system-font;
-  font-size: $regular-size;
-  color: $font-color;
-  display: flex;
-  justify-content: center;
+    background-color: $background-color;
+    font-family: $system-font;
+    font-size: $regular-size;
+    color: $font-color;
+    line-height: 1.3;
 }
 
 main {
-  padding: $base;
-  width: 100vw;
-  max-width: 400px;
-  border: 2px solid $dark-red;
-}
-
-.footer {
-  position: sticky;
-  font-size: $small-size;
-  margin: 0 $base $base;
+    padding: $base;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .more-info {
-  display: flex;
-  justify-content: flex-end;
-  color: $accent-yellow;
-  font-size: $h4-size;
-  cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    color: $accent-yellow;
+    font-size: $h4-size;
+    cursor: pointer;
 
-  p {
-    text-decoration: underline;
-  }
+    p {
+        text-decoration: underline;
+    }
 }
 
 .homepage {
-  @include alignCenter();
-  flex-direction: column;
+    @include alignCenter();
+    flex-direction: column;
 }
 
 .homepage__logo {
@@ -75,12 +61,12 @@ button {
 }
 
 .menu-link {
-  @include menuLink;
+    @include menuLink;
 }
 
 .login-options {
-  flex-direction: column;
-  @include alignCenter();
+    flex-direction: column;
+    @include alignCenter();
 }
 
 .login-options__login {
@@ -88,30 +74,21 @@ button {
 }
 
 .login-options__register {
-  margin-top: 0.5 * $base;
-  text-transform: uppercase;
-}
-
-.about-dish__heading {
-  font-size: $h3-size;
-  font-family: $decorative-font;
-}
-
-.about-dish__logo {
-  @include mediumLogo();
+    margin-top: 0.5 * $base;
+    text-transform: uppercase;
 }
 
 .return-link {
-  text-decoration: underline;
-  color: $font-color;
+    text-decoration: underline;
+    color: $font-color;
 }
 
 .main-logo-container {
-  @include alignCenter();
+    @include alignCenter();
 
-  .main-logo {
-    @include bigLogo();
-  }
+    .main-logo {
+        @include bigLogo();
+    }
 }
 
 // ABOUT pages
@@ -151,54 +128,50 @@ button {
   padding-right: $tiny;
 }
 
-// DISH PAGE
 
-.dietary-info ul,
-.item-info__info__servings {
-  width: 100%;
-  display: flex;
+//MAIN PAGE
+
+.main-menu {
+    @include alignCenter();
+    flex-direction: column;
+    margin: $base 0;
 }
 
-.dietary-info ul li,
-.item-info__info__servings li {
-  margin: 0 0.25em;
+details {
+    flex-direction: column;
 }
 
-.item-info {
-  width: 100%;
+.main-menu__options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.item-info__name {
-  font-family: $decorative-font;
-  font-size: $h2-size;
+.main-menu__options li {
+    margin: $small 0;
 }
 
-.item-info__image {
-  margin-left: -$base;
-  width: calc(100% + #{2 * $base} - 0.5px);
+summary {
+    @include redButton();
+    width: 60vw;
+    text-align: center;
+    line-height: 40px;
 }
 
-.item-info__container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 0.5em;
+summary::-webkit-details-marker {
+    display: none;
 }
 
-.item-info__info,
-.dietary-info {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 0.25em;
+.food-options {
+    margin-bottom: 110px;
 }
 
-.item-form {
-  display: flex;
-  justify-content: center;
-  margin-top: 1em;
+.food-options[open] {
+    margin-bottom: 0;
 }
 
-// CREATE COMMUNITY FORM PAGE - Bobby
 
+// CREATE COMMUNITY FORM PAGE
 .add-form {
   display: flex;
   flex-direction: column;
@@ -235,5 +208,27 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: $h2-size;
+}
+
+// SUCCESS pages
+
+.success-card {
+  width: 100%;
+  position: relative;
+}
+
+.success-card__image {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.success-card__info {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
 }
