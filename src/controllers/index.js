@@ -22,7 +22,8 @@ const {
 const error = require("./error");
 
 router.get("/", (req, res) => {
-  res.render("home");
+  res.render("main");
+  // "home" route only contain login and register buttons
 });
 
 // Basic post routes
