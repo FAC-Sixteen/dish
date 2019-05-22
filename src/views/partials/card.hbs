@@ -1,7 +1,6 @@
 <div class="card">
     <div class="card__image">
-        <img
-            src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-breakfast-burrito-horizontaljpg-1541624805.jpg?resize=980:*">
+        <img src={{image}}>
         <div class="card__info">
             <h3 class="card__info__name">{{name}}</h3>
             <p class="card__info__additional-info"></p>
@@ -9,9 +8,13 @@
         </div>
     </div>
     <div class="card__teaser">
-        <div class="card__options">
-            <button class="card__options__action">{{item}}</button>
-            <button class="card__options__more-info">{{item}}</button>
+        <div class="card-options">
+            <button class="card-options__action">{{item}}</button>
+             {{#if (compare item 'dish')}}
+           <a href="/{{item}}/{{dishid}}" ><button class="card-options__more-info">More Info</button></a>
+             {{else}}
+            <a href="/{{item}}/{{communityid}}"><button class="card-options__more-info">More Info</button></a>  
+            {{/if}}
         </div>
         <p>{{teaser}}</p>
     </div>

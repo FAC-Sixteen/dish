@@ -1,4 +1,5 @@
 module.exports = {
   titlecase: require("./titlecase"),
-  compare: require("./comparison")
+  compare: require("./comparison"),
+  greaterThanEqualTo: require("./greaterthan")
 };

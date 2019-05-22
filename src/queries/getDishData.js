@@ -1,26 +1,28 @@
-const db = require('../model/db_connection.js');
+const db = require("../model/db_connection.js");
 
-const getDishListings = () => {
-    return db
-        .query("SELECT * FROM dishes")
-        .then(response => {
-            console.log(response.rows);
-            return response.rows;
-        });
+const getDishListings = param => {
+  if (param !== undefined) {
+    throw Error("There was an argument");
+  } else {
+    return db.query("SELECT * FROM dishes").then(response => {
+      return response.rows;
+    });
+  }
 };
 
-const getSpecificDish = (ID) => {
+const getSpecificDish = ID => {
+  if (typeof ID !== "number") {
+    throw Error("Invalid argument, should be an integer");
+  } else {
     return db
-        .query("SELECT * FROM dishes WHERE dishID = $1", [ID])
-        .then(response => {
-            console.log(response.rows);
-            return response.rows;
-        });
+      .query("SELECT * FROM dishes WHERE dishID = $1", [ID])
+      .then(response => {
+        return response.rows;
+      });
+  }
 };
-
-getDishListings();
 
 module.exports = {
-    getDishListings,
-    getSpecificDish
-}
+  getDishListings,
+  getSpecificDish
+};
