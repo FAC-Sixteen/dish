@@ -13,6 +13,8 @@ const { claimDish, joinCommunity } = require("../queries/actionItem");
 
 const { getDishListings, getSpecificDish } = require("../queries/getDishData");
 
+const { getSpecificUser } = require("../queries/getUserData");
+
 const {
   getCommunityListings,
   getSpecificCommunity
@@ -41,15 +43,27 @@ router.post("/:item-add", (req, res, next) => {
 });
 
 router.post("/:item-action", (req, res, next) => {
+  let claimedDish;
+  let chefOfClaimedDish;
+  console.log("This route is working")
   const { item } = req.params;
   if (item === "dish") {
     claimDish(req.body, "claim")
     .then(response => {
       return getSpecificDish(response[0].dishid);
     })
+    .then(response => {
+      claimedDish = response;
+      return getSpecificUser(response[0].creatorid);
+    })
+    .then(response => {
+      chefOfClaimedDish = response;
+    })
       .then(data => {
-        console.log("Here's the dish data", data);
-        res.render("success", {item, action: "claim", data: data[0]});
+        console.log("hi Kate", claimedDish[0]);
+        console.log("hi Anna", chefOfClaimedDish[0]);
+        // return;
+        res.render("success", {item, action: "claim", dish: claimedDish[0], user: chefOfClaimedDish[0]});
       })
       .catch(err => next(err));
   } else if (item === "community") {

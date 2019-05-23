@@ -1,18 +1,21 @@
 <h1 class="success-title">Hooray!</h1>
 
-<div class="success-card">
-  <img class="success-card_image" src="{{ data.image }}">
+<div class="success-card" style="background-image:url({{ dish.image }}); background-repeat: no-repeat">
+  <!-- <img class="success-card_image" src="{{ dish.image }}"> -->
 
   <div class="success-card__info">
 
-<h2 class="success-message">You've claimed:</h2>
-<h3 class="success-dish">{{ data.name }}</h3>
+<h2 class="success-message">You've {{ action }}ed:</h2>
+<h3 class="success-dish">{{ dish.name }}</h3>
 
-<p class="success-collection-time">{{ data.collection_time }}</p>
-<p class="success-collection-location">{{ data.collection_location }}</p>
+<p class="success-collection-time">{{ dish.collection_time }}</p>
+<p class="success-collection-location">{{ dish.collection_location }}</p>
 
-<a href="/" class='return-link'><i class="fas fa-arrow-left"></i>See more food</a>
+<a href="/{{item}}-listings" class='return-link'><i class="fas fa-arrow-left"></i>See more food</a>
+
+</div>
 
 </div>
 
-</div>
+<p>{{ user.username }}</p>
+<p>{{ user.image }}</p>
