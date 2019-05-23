@@ -1,5 +1,7 @@
 //Import Node modules
 const express = require("express");
+const jwt = require("jsonwebtoken");
+
 const router = express.Router();
 
 //Import queries
@@ -20,12 +22,43 @@ const {
   getSpecificCommunity
 } = require("../queries/getCommunityData");
 
+const { createUser, searchUser } = require("../queries/auth");
+
 //Import error functions
 const error = require("./error");
 
 router.get("/", (req, res) => {
-  res.render("main");
+  res.render("home");
   // "home" route only contain login and register buttons
+});
+
+// Registration / Login routes
+router.post("/register", (req, res, next) => {
+  console.log("registering...");
+  const { username, password, email, image, location } = req.body;
+  createUser(username, password, email, image, location)
+    .then(responseID => {
+      const signed = jwt.sign(responseID, process.env.SECRET);
+      const week = 1000 * 60 * 60 * 24 * 7;
+      res.cookie("userID", signed, { maxAge: week * 1, httpOnly: true });
+      res.render("main");
+    })
+    .catch(err => next(err));
+});
+
+router.post("/login", (req, res, next) => {
+  console.log("logging in...");
+  const { password, email } = req.body;
+  searchUser(email, password)
+    .then(response => {
+      console.log(response);
+      const { id, username } = response;
+      const signed = jwt.sign(id, process.env.SECRET);
+      const week = 1000 * 60 * 60 * 24 * 7;
+      res.cookie("userID", signed, { maxAge: week * 1, httpOnly: true });
+      res.render("main");
+    })
+    .catch(err => next(err));
 });
 
 // Basic post routes
@@ -36,6 +69,7 @@ router.post("/:item-add", (req, res, next) => {
       .then(() => res.redirect(301, "/dish-list-success"))
       .catch(err => next(err));
   } else if (item === "community") {
+    console.log(req.body);
     postSpecificCommunity(req.body)
       .then(() => res.redirect(301, "/community-list-success"))
       .catch(err => next(err));
@@ -47,6 +81,11 @@ router.post("/:item-action", (req, res, next) => {
   let chefOfClaimedDish;
   console.log("This route is working")
   const { item } = req.params;
+  const signedUserID = req.cookies.userID;
+  console.log(signedUserID);
+  const userID = jwt.verify(signedUserID, process.env.SECRET);
+  console.log({ userID });
+
   if (item === "dish") {
     claimDish(req.body, "claim")
     .then(response => {
@@ -67,9 +106,9 @@ router.post("/:item-action", (req, res, next) => {
       })
       .catch(err => next(err));
   } else if (item === "community") {
-    joinCommunity(req.body, "join")
+    joinCommunity(req.body, userID)
       .then(() => {
-        res.render("success", {item, action: "join"});
+        res.render("success", { item, action: "join" });
       })
       .catch(err => next(err));
   }
@@ -167,6 +206,7 @@ router.get("/about", (req, res) => {
 });
 
 router.get("/register", (req, res) => {
+  console.log("register");
   res.render("register");
 });
 
@@ -182,24 +222,5 @@ router.get("/main", (req, res) => {
 
 router.use(error.missing);
 router.use(error.server);
-
-// Basic post routes
-router.post("/:item-add", (req, res) => {
-  const {
-    item
-  } = req.params;
-
-
-  // console.log(item, "this is the item posted");
-  // console.log(req.body, "this is the req body");
-  if (item === "dish") {
-    postData.postSpecificDish(req.body)
-    res.redirect(301, "/dish-list-success")
-  } else if (item === "community") {
-    postData.postSpecificCommunity(req.body)
-    res.redirect(301, "/community-add-success")
-  }
-
-});
 
 module.exports = router;

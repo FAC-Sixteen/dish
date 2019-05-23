@@ -12,5 +12,5 @@ const runDbBuild = () =>
       resolve(true);
     });
   });
-// runDbBuild();
+runDbBuild();
 module.exports = runDbBuild;
