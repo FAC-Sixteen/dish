@@ -117,7 +117,6 @@ router.post("/:item-action", (req, res, next) => {
   const loggedIn = cookie.check(req) ? cookie.values(req) : false;
   if (loggedIn) {
     const { id } = cookie.values(req);
-
     if (item === "dish") {
       claimDish(req.body, id)
         .then(response => {

@@ -14,7 +14,7 @@
       <p class="success-card__chef-credit">by {{ user.username }}</p>
     </div>
 
-    <p class="success-card__collection-time">{{ dish.collection_time }}</p>
+    <p class="success-card__collection-time">{{collect dish.collection_time }}</p>
     <p class="success-card__collection-location">{{ dish.collection_location }}</p>
     {{/if}}
     <a href="/{{item}}-listings" class='return-link'><i class="fas fa-arrow-left"></i>See more food</a>
