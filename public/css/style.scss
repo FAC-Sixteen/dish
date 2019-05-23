@@ -281,8 +281,8 @@ summary::-webkit-details-marker {
   }
 
   &__info {
-    margin-left: calc(#{-$base} + 0.5px);
-    width: calc(100% + #{2 * $base} - 1px);
+    margin-left: calc(#{-$small} + 0.5px);
+    width: calc(100% + #{$tiny});
     position: absolute;
     top: 0;
     left: 0;

@@ -403,8 +403,8 @@ summary::-webkit-details-marker {
 }
 
 .card__info {
-  margin-left: calc(-1.5em + 0.5px);
-  width: calc(100% + 3em - 1px);
+  margin-left: calc(-1em + 0.5px);
+  width: calc(100% + 0.5em);
   position: absolute;
   top: 0;
   left: 0;
@@ -429,6 +429,7 @@ summary::-webkit-details-marker {
 .card__options a {
   color: #AB7507;
   text-decoration: underline;
+}
 
 .success-card {
   width: 100%;
