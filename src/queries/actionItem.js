@@ -27,4 +27,11 @@ const joinCommunity = (data, userID) => {
     });
 };
 
-module.exports = { claimDish, joinCommunity };
+const decrementDish = dishID => {
+  return db.query(
+    "UPDATE dishes SET portions_remaining = portions_remaining -1 WHERE id = $1",
+    [parseInt(dishID)]
+  );
+};
+
+module.exports = { claimDish, joinCommunity, decrementDish };

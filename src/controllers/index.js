@@ -11,7 +11,11 @@ const {
   postSpecificDish
 } = require("../queries/addItem");
 
-const { claimDish, joinCommunity } = require("../queries/actionItem");
+const {
+  claimDish,
+  joinCommunity,
+  decrementDish
+} = require("../queries/actionItem");
 
 const { getDishListings, getSpecificDish } = require("../queries/getDishData");
 
@@ -95,11 +99,8 @@ router.post("/:item-add", (req, res, next) => {
 router.post("/:item-action", (req, res, next) => {
   let claimedDish;
   let chefOfClaimedDish;
-  console.log("This route is working")
   const { item } = req.params;
-
   const loggedIn = cookie.check(req) ? cookie.values(req) : false;
-
   if (loggedIn) {
     const { id } = cookie.values(req);
 
@@ -108,14 +109,16 @@ router.post("/:item-action", (req, res, next) => {
         .then(response => {
           return getSpecificDish(response[0].dishid);
         })
-      .then(response => {
-      claimedDish = response;
-      return getSpecificUser(response[0].creatorid);
-    })
-    .then(response => {
-      chefOfClaimedDish = response;
-    })
-        .then(data => {
+        .then(response => {
+          claimedDish = response;
+          return getSpecificUser(response[0].creatorid);
+        })
+        .then(response => {
+          chefOfClaimedDish = response;
+          return;
+        })
+        .then(() => decrementDish(claimedDish[0].id))
+        .then(() => {
           res.render("success", {
             loggedIn,
             item,
@@ -134,7 +137,6 @@ router.post("/:item-action", (req, res, next) => {
     }
   } else {
     res.render("login", { main: true });
-
   }
 });
 
