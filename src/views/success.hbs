@@ -1,2 +1,18 @@
-<h1>Hooray!</h1>
-<p>You were successful in {{ action }}ing your {{ item }}</p>
+<h1 class="success-title">Hooray!</h1>
+
+<div class="success-card">
+  <img class="success-card_image" src="{{ data.image }}">
+
+  <div class="success-card__info">
+
+<h2 class="success-message">You've claimed:</h2>
+<h3 class="success-dish">{{ data.name }}</h3>
+
+<p class="success-collection-time">{{ data.collection_time }}</p>
+<p class="success-collection-location">{{ data.collection_location }}</p>
+
+<a href="/" class='return-link'><i class="fas fa-arrow-left"></i>See more food</a>
+
+</div>
+
+</div>

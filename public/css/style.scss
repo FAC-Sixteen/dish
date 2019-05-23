@@ -173,8 +173,7 @@ summary::-webkit-details-marker {
   margin-bottom: 0;
 }
 
-// CREATE COMMUNITY FORM PAGE - Bobby
-
+// CREATE COMMUNITY FORM PAGE
 .add-form {
   display: flex;
   flex-direction: column;
@@ -310,4 +309,27 @@ summary::-webkit-details-marker {
       text-decoration: underline;
     }
   }
+}
+
+// SUCCESS pages
+
+.success-card {
+  width: 100%;
+  position: relative;
+}
+
+.success-card__image {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.success-card__info {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
 }

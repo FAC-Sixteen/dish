@@ -1,12 +1,12 @@
 const db = require("../model/db_connection.js");
 
-const claimDish = (data, category) => {
+const claimDish = (data, userID) => {
   return db
     .query(
-      "INSERT INTO transactions(category, userID, communityID, dishID) VALUES ($1, $2, $3, $4) RETURNING id",
+      "INSERT INTO transactions(category, userID, communityID, dishID) VALUES ($1, $2, $3, $4) RETURNING dishID",
       [
-        category,
-        parseInt(data.userID),
+        "claim",
+        parseInt(userID),
         parseInt(data.communityID),
         parseInt(data.dishID)
       ]
@@ -16,11 +16,11 @@ const claimDish = (data, category) => {
     });
 };
 
-const joinCommunity = (data, category) => {
+const joinCommunity = (data, userID) => {
   return db
     .query(
       "INSERT INTO transactions(category, userID, communityID) VALUES ($1, $2, $3) RETURNING id",
-      [category, parseInt(data.userID), parseInt(data.communityID)]
+      ["join", parseInt(userID), parseInt(data.communityID)]
     )
     .then(response => {
       return response.rows;

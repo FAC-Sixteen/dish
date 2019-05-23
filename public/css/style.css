@@ -429,5 +429,25 @@ summary::-webkit-details-marker {
 .card__options a {
   color: #AB7507;
   text-decoration: underline;
+
+.success-card {
+  width: 100%;
+  position: relative;
+}
+
+.success-card__image {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.success-card__info {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
 }
 /*# sourceMappingURL=style.css.map */
