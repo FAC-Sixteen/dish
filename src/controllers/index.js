@@ -83,12 +83,26 @@ router.post("/:item-add", (req, res, next) => {
   const loggedIn = cookie.check(req) ? cookie.values(req) : false;
   if (loggedIn) {
     if (item === "dish") {
-      postSpecificDish(req.body)
-        .then(() => res.redirect(301, "/dish-list-success"))
+      postSpecificDish(req.body, loggedIn)
+        .then(response => {
+          res.render("success", {
+            loggedIn,
+            item,
+            action: "add",
+            dish: response
+          });
+        })
         .catch(err => next(err));
     } else if (item === "community") {
-      postSpecificCommunity(req.body)
-        .then(() => res.redirect(301, "/community-list-success"))
+      postSpecificCommunity(req.body, loggedIn)
+        .then(response => {
+          res.render("success", {
+            loggedIn,
+            item,
+            action: "add",
+            dish: response
+          });
+        })
         .catch(err => next(err));
     }
   } else {
