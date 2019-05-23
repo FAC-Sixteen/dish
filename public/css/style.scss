@@ -354,11 +354,42 @@ summary::-webkit-details-marker {
 
 .success-card {
   width: 100%;
+  min-height: 500px;
   position: relative;
+  background-size: cover;
+}
+
+.success-title {
+  color: $font-color-light;
+  padding-left: $half-base;
+  font-size: $h2-size;
+}
+
+.success-card__message {
+  font-size: $h3-size;
+}
+
+.success-card__dish {
+  font-family: $decorative-font;
+  font-size: $h1-size;
+}
+
+.success-card__chef {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.success-card__chef-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  // padding: 0 $base;
 }
 
 .success-card__image {
-  width: 100%;
+  width: 100px;
+  height: 100px;
   position: absolute;
   z-index: -1;
   top: 0;
@@ -366,9 +397,13 @@ summary::-webkit-details-marker {
 }
 
 .success-card__info {
+  // padding: $base;
   width: 100%;
+  height: 100%;
+  background: white;
+  background:rgba(255,255,255,0.7);
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   top: 0;
   left: 0;
 }
