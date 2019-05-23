@@ -34,6 +34,7 @@ router.post("/:item-add", (req, res, next) => {
       .then(() => res.redirect(301, "/dish-list-success"))
       .catch(err => next(err));
   } else if (item === "community") {
+    console.log(req.body);
     postSpecificCommunity(req.body)
       .then(() => res.redirect(301, "/community-list-success"))
       .catch(err => next(err));
