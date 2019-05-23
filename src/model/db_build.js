@@ -8,6 +8,7 @@ const runDbBuild = () =>
     // eslint-disable-next-line no-unused-vars
     dbConnection.query(sql, (err, res) => {
       if (err) reject(err);
+      // eslint-disable-next-line no-console
       console.log("database being built");
       resolve(true);
     });

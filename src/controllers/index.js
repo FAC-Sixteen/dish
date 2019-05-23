@@ -36,11 +36,9 @@ router.get("/", (req, res) => {
 
 // Registration / Login routes
 router.post("/register", (req, res, next) => {
-  console.log("registering...");
   const { username, password, email, image, location } = req.body;
   createUser(username, password, email, image, location)
     .then(response => {
-      console.log(response);
       // const { username, id } = response;
       const signed = jwt.sign(response, process.env.SECRET);
       const week = 1000 * 60 * 60 * 24 * 7;
@@ -51,11 +49,9 @@ router.post("/register", (req, res, next) => {
 });
 
 router.post("/login", (req, res, next) => {
-  console.log("logging in...");
   const { password, email } = req.body;
   searchUser(email, password)
     .then(response => {
-      console.log(response);
       const message = "Sorry, either your username or password are incorrect";
       const { id, username } = response;
       if (response.authorised === false) {
@@ -71,7 +67,6 @@ router.post("/login", (req, res, next) => {
 });
 
 router.get("/logout", (req, res) => {
-  console.log("logging out...");
   res.clearCookie("dish");
   res.render("home", { main: true });
 });
@@ -232,7 +227,6 @@ router.get("/about", (req, res) => {
 });
 
 router.get("/register", (req, res) => {
-  console.log("register");
   res.render("register");
 });
 
@@ -242,7 +236,6 @@ router.get("/login", (req, res) => {
 
 router.get("/main", (req, res) => {
   const loggedIn = cookie.check(req) ? cookie.values(req) : false;
-  console.log(loggedIn);
   res.render("main", { loggedIn });
 });
 
