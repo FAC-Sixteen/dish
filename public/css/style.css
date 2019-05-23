@@ -303,20 +303,34 @@ summary::-webkit-details-marker {
   width: 100%;
   min-height: 500px;
   position: relative;
+  background-size: cover;
 }
 
 .success-title {
+  color: #4C5866;
   padding-left: 0.75em;
   font-size: 2em;
 }
 
-.success-message {
+.success-card__message {
   font-size: 1.5em;
 }
 
-.success-dish {
+.success-card__dish {
   font-family: "Abril Fatface", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 2.75em;
+}
+
+.success-card__chef {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.success-card__chef-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .success-card__image {
@@ -329,7 +343,6 @@ summary::-webkit-details-marker {
 }
 
 .success-card__info {
-  padding: 1.5em;
   width: 100%;
   height: 100%;
   background: white;

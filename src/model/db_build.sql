@@ -62,8 +62,8 @@ CONSTRAINT communityID FOREIGN KEY (communityID) REFERENCES communities (id),
 CONSTRAINT dishID FOREIGN KEY (dishID) REFERENCES dishes (id)
 );
 
-INSERT INTO users (username, password, email, image, location) VALUES ('Sandra', 'ilovestrawberries', 'sandra@email.com', 'https://giphy.com/gifs/fjxNNYg8HEiKORTaqF', 'Tufnell Park'),
-('Bobby', 'yee', 'bobby@yee.com', 'https://gph.is/11VjpH4', 'Manor House');
+INSERT INTO users (username, password, email, image, location) VALUES ('Sandra', 'ilovestrawberries', 'sandra@email.com', 'https://avatars1.githubusercontent.com/u/40060574?s=460&v=4', 'Tufnell Park'),
+('Bobby', 'yee', 'bobby@yee.com', 'https://avatars2.githubusercontent.com/u/30030755?s=460&v=4', 'Manor House');
 
 INSERT INTO communities (adminID, name, location, description, image, teaser) VALUES (2, 'Space4', 'Finsbury Park', 'A frindly co-working community', 'https://gph.is/2bcGfQj', 'Coworking space in Finsbury Park');
 
