@@ -234,7 +234,7 @@ summary {
   width: 145px;
   font-size: 1.125em;
   font-weight: lighter;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   width: 60vw;
   text-align: center;
   line-height: 40px;
@@ -264,13 +264,21 @@ summary::-webkit-details-marker {
 
 .add-form__input {
   width: 100%;
+  min-height: 48px;
   background: #E2E5E9;
   border-left: #E2E5E9;
   border-top: #E2E5E9;
   border-right: #E2E5E9;
   border-bottom: 1px solid #AA0808;
+  font-size: 1em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   min-height: 45px;
   margin-bottom: 1em;
+}
+
+.fa-utensils {
+  color: #AA0808;
+  padding-right: 0.5em;
 }
 
 .create-header {
@@ -282,12 +290,62 @@ summary::-webkit-details-marker {
   font-size: 1.125em;
 }
 
-.form-input-labels__dietary {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+.required-asterisk {
+  color: #AA0808;
 }
 
-.red-button {
+.dietary-info,
+.allergies-info,
+.servings-info,
+.cooked-info,
+.collection-info,
+.location-info,
+.additional-info,
+.spiciness-info {
+  width: 100%;
+  min-height: 48px;
+  background: #E2E5E9;
+  border-left: #E2E5E9;
+  border-top: #E2E5E9;
+  border-right: #E2E5E9;
+  border-bottom: 1px solid #AA0808;
+  font-size: 1em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.preference {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 60%;
+  margin: 0.25em;
+}
+
+.checkbox {
+  background-color: yellow;
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.post-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.post-item__button {
   background-color: #AA0808;
   color: #F9FAFB;
   border-radius: 5px;
@@ -298,10 +356,7 @@ summary::-webkit-details-marker {
   width: 145px;
   font-size: 1.125em;
   font-weight: lighter;
-  letter-spacing: 1px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  letter-spacing: 2px;
 }
 
 .red-file-upload-button {
@@ -450,5 +505,26 @@ summary::-webkit-details-marker {
   z-index: -1;
   top: 0;
   left: 0;
+}
+
+.error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-bottom: 3em;
+}
+
+.error__logo {
+  height: 110px;
+  width: 110px;
+}
+
+.error__num {
+  font-family: "Abril Fatface", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 2em;
+  color: #610505;
 }
 /*# sourceMappingURL=style.css.map */

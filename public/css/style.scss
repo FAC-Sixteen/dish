@@ -173,7 +173,7 @@ summary::-webkit-details-marker {
   margin-bottom: 0;
 }
 
-// CREATE COMMUNITY FORM PAGE
+// CREATE FORM PAGE
 .add-form {
   display: flex;
   flex-direction: column;
@@ -185,6 +185,10 @@ summary::-webkit-details-marker {
   }
 }
 
+.fa-utensils {
+  color: $default-red;
+  padding-right: $tiny;
+}
 
 .create-header {
   font-size: $h3-size;
@@ -193,16 +197,48 @@ summary::-webkit-details-marker {
 
 .form-input-labels {
   font-size: $h4-size;
+}
 
-  &__dietary {
-    align-self: flex-start;
+.required-asterisk {
+  color: $default-red;
+}
+
+.dietary-info,
+.allergies-info,
+.servings-info,
+.cooked-info,
+.collection-info,
+.location-info,
+.additional-info,
+.spiciness-info {
+  @include userInput();
+  font-family: $system-font;
+  font-size: $regular-size;
+  margin-bottom: $small;
+}
+
+.preference {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: $tiny / 2;
+}
+
+.checkbox {
+  background-color: yellow;
+  height: $base;
+  width: $base;
+}
+
+.post-item {
+  @include alignCenter();
+
+  &__button {
+    @include redButton;
   }
 }
 
-.red-button {
-  @include redButton;
-  align-self: center;
-}
+//
 
 .red-file-upload-button {
   @include redFileUploadButton;
@@ -332,4 +368,22 @@ summary::-webkit-details-marker {
   z-index: -1;
   top: 0;
   left: 0;
+}
+
+//404 page
+
+.error {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: $large;
+
+  &__logo {
+    @include smallLogo();
+  }
+
+  &__num {
+    font-family: $decorative-font;
+    font-size: $h2-size;
+    color: $dark-red;
+  }
 }

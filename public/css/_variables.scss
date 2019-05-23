@@ -66,7 +66,7 @@ $x-large: 4em;
     width: 145px;
     font-size: $h4-size;
     font-weight: lighter;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 @mixin redFileUploadButton {
@@ -102,9 +102,12 @@ $x-large: 4em;
 
 @mixin userInput {
     width: 100%;
+    min-height: 48px;
     background: $input-grey;
     border-left: $input-grey;
     border-top: $input-grey;
     border-right: $input-grey;
     border-bottom: 1px solid $default-red;
+    font-size: $regular-size;
+    font-family: $system-font;
 }
