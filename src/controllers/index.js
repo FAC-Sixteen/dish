@@ -44,11 +44,19 @@ router.post("/:item-action", (req, res, next) => {
   const { item } = req.params;
   if (item === "dish") {
     claimDish(req.body, "claim")
-      .then(() => res.redirect(301, "/dish-claim-success"))
+    .then(response => {
+      return getSpecificDish(response[0].dishid);
+    })
+      .then(data => {
+        console.log("Here's the dish data", data);
+        res.render("success", {item, action: "claim", data: data[0]});
+      })
       .catch(err => next(err));
   } else if (item === "community") {
     joinCommunity(req.body, "join")
-      .then(() => res.redirect(301, "/community-join-success"))
+      .then(() => {
+        res.render("success", {item, action: "join"});
+      })
       .catch(err => next(err));
   }
 });
