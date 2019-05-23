@@ -177,13 +177,14 @@ summary::-webkit-details-marker {
 .add-form {
   display: flex;
   flex-direction: column;
+
+  &__input {
+    @include userInput();
+    min-height: 45px;
+    margin-bottom: $small;
+  }
 }
 
-.add-form__input {
-  @include userInput();
-  min-height: 45px;
-  margin-bottom: $small;
-}
 
 .create-header {
   font-size: $h3-size;
@@ -192,10 +193,10 @@ summary::-webkit-details-marker {
 
 .form-input-labels {
   font-size: $h4-size;
-}
 
-.form-input-labels__dietary {
-  align-self: flex-start;
+  &__dietary {
+    align-self: flex-start;
+  }
 }
 
 .red-button {
@@ -256,6 +257,58 @@ summary::-webkit-details-marker {
   display: flex;
   justify-content: center;
   margin-top: 1em;
+}
+
+// LISTINGS PAGE
+.add-item {
+  color: $accent-green;
+  font-family: $system-font;
+
+  i {
+    font-size: $h3-size;
+    margin-bottom: $small;
+  }
+}
+
+.card {
+  &__image img {
+    margin-left: calc(#{-$base} + 0.5px);
+    width: calc(100% + #{2 * $base} - 1px);
+  }
+
+  &__image {
+    position: relative;
+  }
+
+  &__info {
+    margin-left: calc(#{-$small} + 0.5px);
+    width: calc(100% + #{$tiny});
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: $tiny;
+    padding-left: $small;
+    height: $base;
+    font-family: $decorative-font;
+    font-size: $h3-size;
+    background-color: $opaque-grey;
+  }
+
+  &__teaser {
+    margin-left: -$tiny;
+    color: $font-color-light;
+
+  }
+
+  &__options {
+    text-align: center;
+    padding-bottom: $small;
+
+    a {
+      color: $accent-gold;
+      text-decoration: underline;
+    }
+  }
 }
 
 // SUCCESS pages

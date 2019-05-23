@@ -1,9 +1,8 @@
-<h2 class ="create-header">Create a {{ item }}</h2>
+<h2 class="create-header">Create a {{ item }}</h2>
 
-<form class="add-form" action="{{ item }}-add" method="post">
-  <!-- <div class="img-placeholder">
-  </div> -->
-  <!-- <input type="file" class="red-file-upload-button"> -->
+<form action="{{ item }}-add" method="post">
+  <div class="img-placeholder">
+  </div>
 
   <label for="imgUrl" class="form-input-labels">Image URL<sup class="required-asterisk">*</sup></label>
   <input class="add-form__input" type="text" name="imgUrl" id="imgUrl" required>
@@ -13,7 +12,8 @@
 
   {{#if (compare item 'dish')}}
 
-  <label for="teaser" class="form-input-labels">Write a one-liner about your dish<sup class="required-asterisk">*</sup></label>
+  <label for="teaser" class="form-input-labels">Write a one-liner about your dish<sup
+      class="required-asterisk">*</sup></label>
   <input class="add-form__input" type="text" name="teaser" id="teaser" required>
 
   <label for="spiciness" class="form-input-labels">Spiciness</label>
@@ -83,40 +83,40 @@
 
   <label for="borough">Where is your community?<sup class="required-asterisk">*</sup></label>
   <select class="add-form__input" name="borough" id="borough" required>
-    <option value="unknown">--Please select borough--</option>
-    <option>lambeth</option>
-    <option>havering</option>
-    <option>bexley</option>
-    <option>redbridge</option>
-    <option>enfield</option>
-    <option>walthamforest</option>
-    <option>sutton</option>
-    <option>kingston</option>
-    <option>bromley</option>
-    <option>croydon</option>
-    <option>barkinganddagenham</option>
-    <option>newham</option>
-    <option>greenwich</option>
-    <option>towerhamlets</option>
-    <option>hackney</option>
-    <option>islington</option>
-    <option>cityoflondon</option>
-    <option>merton</option>
-    <option>lewisham</option>
-    <option>southwark</option>
-    <option>haringey</option>
-    <option>wandsworth</option>
-    <option>westminster</option>
-    <option>camden</option>
-    <option>barnet</option>
-    <option>kensingtonandchelsea</option>
-    <option>hammersmithandfulham</option>
-    <option>brent</option>
-    <option>harrow</option>
-    <option>richmond</option>
-    <option>hounslow</option>
-    <option>hillingdon</option>
-    <option>ealing</option>
+    <option value="">--Please select borough--</option>
+    <option value="">Lambeth</option>
+    <option value="">Havering</option>
+    <option value="">Bexley</option>
+    <option value="">Redbridge</option>
+    <option value="">Enfield</option>
+    <option value="">Waltham Forest</option>
+    <option value="">Sutton</option>
+    <option value="">Kingston</option>
+    <option value="">Bromley</option>
+    <option value="">Croydon</option>
+    <option value="">Barking and Dagenham</option>
+    <option value="">Newham</option>
+    <option value="">Greenwich</option>
+    <option value="">Tower Hamlets</option>
+    <option value="">Hackney</option>
+    <option value="">Islington</option>
+    <option value="">City Of London</option>
+    <option value="">Merton</option>
+    <option value="">Lewisham</option>
+    <option value="">Southwark</option>
+    <option value="">Haringey</option>
+    <option value="">Wandsworth</option>
+    <option value="">Westminster</option>
+    <option value="">Camden</option>
+    <option value="">Barnet</option>
+    <option value="">Kensington and Chelsea</option>
+    <option value="">Hammersmith and Fulham</option>
+    <option value="">Brent</option>
+    <option value="">Harrow</option>
+    <option value="">Richmond</option>
+    <option value="">Hounslow</option>
+    <option value="">Hillingdon</option>
+    <option value="">Ealing</option>
   </select>
 
   {{/if}}
