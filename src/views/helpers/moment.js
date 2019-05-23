@@ -7,8 +7,5 @@ module.exports = timeCooked => {
       ? "0" + (timeCooked.getMonth() + 1).toString()
       : (timeCooked.getMonth() + 1).toString();
   const day = timeCooked.getDate() + 1;
-  const hours = timeCooked.getHours();
-  const minutes = timeCooked.getMinutes();
-  const seconds = timeCooked.getSeconds();
   return moment(`${year}${month}${day}`).fromNow();
 };

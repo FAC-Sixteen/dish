@@ -1,1 +1,55 @@
 <h1>This is the registration page</h1>
+
+<form action="register" method="POST">
+  <label for="register__username">name:
+    <input id='register__username' type="text" name='username' required>
+  </label>
+  <label for="register__password">password:
+    <input id='register__password' type="password" name='password' required>
+  </label>
+  <label for="register__email">email:
+    <input id='register__email' type="email" name='email' required>
+  </label>
+  <label for="register__image">image:
+    <input id='register__image' type="text" name='image' required>
+  </label>
+  <label for="register__location">location:
+    <select name="location" id="register-location" required>
+      <option value="">--Please select borough--</option>
+      <option value="">lambeth</option>
+      <option value="">havering</option>
+      <option value="">bexley</option>
+      <option value="">redbridge</option>
+      <option value="">enfield</option>
+      <option value="">walthamforest</option>
+      <option value="">sutton</option>
+      <option value="">kingston</option>
+      <option value="">bromley</option>
+      <option value="">croydon</option>
+      <option value="">barkinganddagenham</option>
+      <option value="">newham</option>
+      <option value="">greenwich</option>
+      <option value="">towerhamlets</option>
+      <option value="">hackney</option>
+      <option value="">islington</option>
+      <option value="">cityoflondon</option>
+      <option value="">merton</option>
+      <option value="">lewisham</option>
+      <option value="">southwark</option>
+      <option value="">haringey</option>
+      <option value="">wandsworth</option>
+      <option value="">westminster</option>
+      <option value="">camden</option>
+      <option value="">barnet</option>
+      <option value="">kensingtonandchelsea</option>
+      <option value="">hammersmithandfulham</option>
+      <option value="">brent</option>
+      <option value="">harrow</option>
+      <option value="">richmond</option>
+      <option value="">hounslow</option>
+      <option value="">hillingdon</option>
+      <option value="">ealing</option>
+    </select>
+  </label>
+  <button>Register</button>
+</form>
