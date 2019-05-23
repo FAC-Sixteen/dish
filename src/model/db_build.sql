@@ -62,7 +62,7 @@ CONSTRAINT dishID FOREIGN KEY (dishID) REFERENCES dishes (id)
 );
 
 INSERT INTO users (username, password, email, image, location) VALUES ('Sandra', 'ilovestrawberries', 'sandra@email.com', 'https://giphy.com/gifs/fjxNNYg8HEiKORTaqF', 'Tufnell Park'),
-('Bobby', 'yee', 'bobby@yee.com', 'https://gph.is/11VjpH4', 'Manor House');
+('Bobby', 'yee', 'bobby@yee.com', 'https://gph.is/11VjpH4', 'Manor House'), ('Sam', '$2b$10$lvOgRMeLnbw59aeiD1/3ZevrrXCA/vQw71.oOQ7kANdnwRlE.Q9dS', 'sam@sam.com', 'https://media.giphy.com/media/xNBcChLQt7s9a/giphy.gif', 'camden');
 
 INSERT INTO communities (adminID, name, location, description, image) VALUES (2, 'Space4', 'Finsbury Park', 'A frindly co-working community', 'https://gph.is/2bcGfQj' );
 

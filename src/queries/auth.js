@@ -20,7 +20,14 @@ const searchUser = (email, password) => {
     .query("SELECT username, password, id FROM users WHERE email = $1", [email])
     .then(response => {
       if (!response.rows.length) return false;
-      return bcrypt.compare(password, response.rows[0].password);
+      return bcrypt
+        .compare(password, response.rows[0].password)
+        .then(authorised => {
+          return {
+            authorised,
+            id: response.rows[0].id
+          };
+        });
     });
 };
 
