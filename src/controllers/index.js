@@ -79,6 +79,7 @@ router.get("/logout", (req, res) => {
 // Basic post routes
 router.post("/:item-add", (req, res, next) => {
   const { item } = req.params;
+
   const loggedIn = cookie.check(req) ? cookie.values(req) : false;
   if (loggedIn) {
     if (item === "dish") {
@@ -92,6 +93,7 @@ router.post("/:item-add", (req, res, next) => {
     }
   } else {
     res.render("login", { main: true });
+
   }
 });
 

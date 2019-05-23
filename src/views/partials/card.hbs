@@ -3,14 +3,15 @@
         <img src={{image}}>
         <div class="card__info">
             <h3 class="card__info__name">{{name}}</h3>
-            <p class="card__info__additional-info"></p>
-            <p class="card__info__user"></p>
+            {{!-- <p class="card__info__additional-info"></p>
+            <p class="card__info__user"></p> --}}
         </div>
     </div>
     <div class="card__teaser">
-        <div class="card-options">
-            <a class="card-options__more-info" href="/{{item}}-{{id}}"><i class="fas fa-info-circle"></i> Hungry for more? <br> Click here! </a>
-        </div>
         <p>{{teaser}}</p>
+    </div>
+    <div class="card__options">
+        <a class="card__options__more-info" href="/{{item}}-{{id}}"><i class="fas fa-info-circle"></i> Hungry for
+            more? <br> Click here! </a>
     </div>
 </div>

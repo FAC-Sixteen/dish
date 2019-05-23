@@ -25,7 +25,7 @@ const postSpecificDish = data => {
     shellfish
   ];
   const bitArray = dietaryArray.map(item => boolToBit(item));
-
+console.log(data, "this is in dish");
   return db
     .query(
       "INSERT INTO dishes(creatorID, communityID, name, teaser, description, portions, portions_remaining, date_cooked, collection_time, collection_location, image, vegetarian, vegan, glutenFree, nuts, dairy, halal, kosher, shellfish, spiciness) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20) RETURNING id, name, image",
@@ -52,6 +52,7 @@ const postSpecificDish = data => {
 };
 
 const postSpecificCommunity = data => {
+  console.log(data, "this is in comminity");
   return db
     .query(
       "INSERT INTO communities(adminID, name, location, description, image) VALUES ($1, $2, $3, $4, $5) RETURNING id, name, image",
