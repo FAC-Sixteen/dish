@@ -22,6 +22,21 @@ const {
 
 const { createUser, searchUser } = require("../queries/auth");
 
+// Cookie checking functions
+
+const cookieValues = req => {
+  console.log(req.cookies.dish);
+  const cookieData = req.cookies.dish;
+  console.log(cookieData);
+  const verifiedData = jwt.verify(cookieData, process.env.SECRET);
+  const { id, username } = verifiedData;
+  return { id, username };
+};
+
+const cookieCheck = req => {
+  return req.cookies.dish ? true : false;
+};
+
 //Import error functions
 const error = require("./error");
 
@@ -69,48 +84,57 @@ router.post("/login", (req, res, next) => {
 // Basic post routes
 router.post("/:item-add", (req, res, next) => {
   const { item } = req.params;
-  if (item === "dish") {
-    postSpecificDish(req.body)
-      .then(() => res.redirect(301, "/dish-list-success"))
-      .catch(err => next(err));
-  } else if (item === "community") {
-    postSpecificCommunity(req.body)
-      .then(() => res.redirect(301, "/community-list-success"))
-      .catch(err => next(err));
+  const loggedIn = cookieCheck(req) ? cookieValues(req) : false;
+  if (loggedIn) {
+    if (item === "dish") {
+      postSpecificDish(req.body)
+        .then(() => res.redirect(301, "/dish-list-success"))
+        .catch(err => next(err));
+    } else if (item === "community") {
+      postSpecificCommunity(req.body)
+        .then(() => res.redirect(301, "/community-list-success"))
+        .catch(err => next(err));
+    }
+  } else {
+    res.render("login");
   }
 });
 
 router.post("/:item-action", (req, res, next) => {
   const { item } = req.params;
-  const cookieData = req.cookies.dish;
-  console.log(cookieData);
-  const verifiedData = jwt.verify(cookieData, process.env.SECRET);
-  const { id } = verifiedData;
+  const loggedIn = cookieCheck(req) ? cookieValues(req) : false;
 
-  if (item === "dish") {
-    claimDish(req.body, id)
-      .then(response => {
-        return getSpecificDish(response[0].dishid);
-      })
-      .then(data => {
-        console.log("Here's the dish data", data);
-        res.render("success", { item, action: "claim", data: data[0] });
-      })
-      .catch(err => next(err));
-  } else if (item === "community") {
-    joinCommunity(req.body, id)
-      .then(() => {
-        res.render("success", { item, action: "join" });
-      })
-      .catch(err => next(err));
+  if (loggedIn) {
+    const { id, username } = cookieValues(req);
+
+    if (item === "dish") {
+      claimDish(req.body, id)
+        .then(response => {
+          return getSpecificDish(response[0].dishid);
+        })
+        .then(data => {
+          res.render("success", { item, action: "claim", data: data[0] });
+        })
+        .catch(err => next(err));
+    } else if (item === "community") {
+      joinCommunity(req.body, id)
+        .then(() => {
+          res.render("success", { item, action: "join" });
+        })
+        .catch(err => next(err));
+    }
+  } else {
+    res.render("login");
   }
 });
 
 // Success/failure pages routes
 
 router.get("/:item-:action-:outcome", (req, res) => {
+  const loggedIn = cookieCheck(req) ? cookieValues(req) : false;
   const { item, action, outcome } = req.params;
   res.render(outcome, {
+    loggedIn,
     action,
     item
   });
@@ -119,11 +143,13 @@ router.get("/:item-:action-:outcome", (req, res) => {
 // Listings pages routes
 
 router.get("/:item-listings", (req, res, next) => {
+  const loggedIn = cookieCheck(req) ? cookieValues(req) : false;
   const { item } = req.params;
   if (item === "dish") {
     getDishListings()
       .then(response => {
         res.render("listings", {
+          loggedIn,
           item,
           type: "listings",
           data: response
@@ -134,6 +160,7 @@ router.get("/:item-listings", (req, res, next) => {
     getCommunityListings()
       .then(response => {
         res.render("listings", {
+          loggedIn,
           type: "listings",
           item,
           data: response
@@ -147,14 +174,17 @@ router.get("/:item-listings", (req, res, next) => {
 
 //Add pages routes
 router.get("/:item-add", (req, res, next) => {
+  const loggedIn = cookieCheck(req) ? cookieValues(req) : false;
   const { item } = req.params;
   if (item === "dish") {
     res.render("add", {
+      loggedIn,
       item,
       type: "add"
     });
   } else if (item === "community") {
     res.render("add", {
+      loggedIn,
       item,
       type: "add"
     });
@@ -165,11 +195,13 @@ router.get("/:item-add", (req, res, next) => {
 
 //Info pages routes
 router.get("/:item-:ID", (req, res, next) => {
+  const loggedIn = cookieCheck(req) ? cookieValues(req) : false;
   const { item, ID } = req.params;
   if (item === "dish") {
     getSpecificDish(parseInt(ID))
       .then(response => {
         res.render("info", {
+          loggedIn,
           type: "info",
           item,
           data: response
@@ -180,6 +212,7 @@ router.get("/:item-:ID", (req, res, next) => {
     getSpecificCommunity(parseInt(ID))
       .then(response => {
         res.render("info", {
+          loggedIn,
           type: "info",
           item,
           data: response
@@ -194,7 +227,8 @@ router.get("/:item-:ID", (req, res, next) => {
 // Basic pages routes
 
 router.get("/about", (req, res) => {
-  res.render("about");
+  const loggedIn = cookieCheck(req) ? cookieValues(req) : false;
+  res.render("about", { loggedIn });
 });
 
 router.get("/register", (req, res) => {
@@ -207,7 +241,9 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/main", (req, res) => {
-  res.render("main");
+  const loggedIn = cookieCheck(req) ? cookieValues(req) : false;
+  console.log(loggedIn);
+  res.render("main", { loggedIn });
 });
 
 //Error handling
