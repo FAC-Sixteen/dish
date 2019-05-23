@@ -30,14 +30,28 @@ router.get("/", (req, res) => {
   // "home" route only contain login and register buttons
 });
 
-// Login route
+// Registration / Login routes
 router.post("/register", (req, res, next) => {
   console.log("registering...");
   const { username, password, email, image, location } = req.body;
   createUser(username, password, email, image, location)
     .then(responseID => {
-      console.log(responseID);
       const signed = jwt.sign(responseID, process.env.SECRET);
+      const week = 1000 * 60 * 60 * 24 * 7;
+      res.cookie("userID", signed, { maxAge: week * 1, httpOnly: true });
+      res.render("main");
+    })
+    .catch(err => next(err));
+});
+
+router.post("/login", (req, res, next) => {
+  console.log("logging in...");
+  const { password, email } = req.body;
+  searchUser(email, password)
+    .then(response => {
+      console.log(response);
+      const { id, username } = response;
+      const signed = jwt.sign(id, process.env.SECRET);
       const week = 1000 * 60 * 60 * 24 * 7;
       res.cookie("userID", signed, { maxAge: week * 1, httpOnly: true });
       res.render("main");
