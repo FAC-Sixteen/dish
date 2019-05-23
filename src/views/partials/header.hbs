@@ -1,3 +1,21 @@
-<a href="/main">
+<a href="
+{{#if loggedIn}}
+/main
+{{else}}
+/
+{{/if}}
+">
     <h1 class="header">dish.</h1>
+
 </a>
+{{#if main}}
+
+{{else}}
+{{#if loggedIn}}
+<p>You are logged in as {{titlecase loggedIn.username}}.
+    <a href="/logout">Log out</a></p>
+{{else}}
+
+<a href="/login">Log in</a>
+{{/if}}
+{{/if}}
