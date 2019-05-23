@@ -451,4 +451,25 @@ summary::-webkit-details-marker {
   top: 0;
   left: 0;
 }
+
+.error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-bottom: 3em;
+}
+
+.error__logo {
+  height: 110px;
+  width: 110px;
+}
+
+.error__num {
+  font-family: "Abril Fatface", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 2em;
+  color: #610505;
+}
 /*# sourceMappingURL=style.css.map */

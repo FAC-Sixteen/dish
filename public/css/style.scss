@@ -333,3 +333,21 @@ summary::-webkit-details-marker {
   top: 0;
   left: 0;
 }
+
+//404 page
+
+.error {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: $large;
+
+  &__logo {
+    @include smallLogo();
+  }
+
+  &__num {
+    font-family: $decorative-font;
+    font-size: $h2-size;
+    color: $dark-red;
+  }
+}
