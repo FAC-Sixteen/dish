@@ -238,6 +238,10 @@ summary::-webkit-details-marker {
   }
 }
 
+.red-button {
+  @include redButton();
+}
+
 //
 
 .red-file-upload-button {
@@ -333,7 +337,6 @@ summary::-webkit-details-marker {
   &__teaser {
     margin-left: -$tiny;
     color: $font-color-light;
-
   }
 
   &__options {
