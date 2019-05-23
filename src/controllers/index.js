@@ -31,7 +31,7 @@ router.get("/", (req, res) => {
 });
 
 // Login route
-router.post("/register-submit", (req, res, next) => {
+router.post("/register", (req, res, next) => {
   console.log("registering...");
   const { username, password, email, image, location } = req.body;
   createUser(username, password, email, image, location)
