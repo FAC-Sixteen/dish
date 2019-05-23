@@ -1,10 +1,8 @@
-<h2 class ="create-header">Create a {{ item }}</h2>
+<h2 class="create-header">Create a {{ item }}</h2>
 
 <form action="{{ item }}-add" method="post">
   <div class="img-placeholder">
   </div>
-
-  <input type="file" class="red-file-upload-button">
 
   <label for="imgUrl" class="form-input-labels">Image URL<sup class="required-asterisk">*</sup></label>
   <input class="add-form__input" type="text" name="imgUrl" id="imgUrl" required>
@@ -14,7 +12,8 @@
 
   {{#if (compare item 'dish')}}
 
-  <label for="teaser" class="form-input-labels">Write a one-liner about your dish<sup class="required-asterisk">*</sup></label>
+  <label for="teaser" class="form-input-labels">Write a one-liner about your dish<sup
+      class="required-asterisk">*</sup></label>
   <input class="add-form__input" type="text" name="teaser" id="teaser" required>
 
   <label for="spiciness" class="form-input-labels">Spiciness</label>
