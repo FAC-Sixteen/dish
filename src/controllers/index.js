@@ -35,10 +35,12 @@ router.post("/register", (req, res, next) => {
   console.log("registering...");
   const { username, password, email, image, location } = req.body;
   createUser(username, password, email, image, location)
-    .then(responseID => {
-      const signed = jwt.sign(responseID, process.env.SECRET);
+    .then(response => {
+      console.log(response);
+      // const { username, id } = response;
+      const signed = jwt.sign(response, process.env.SECRET);
       const week = 1000 * 60 * 60 * 24 * 7;
-      res.cookie("userID", signed, { maxAge: week * 1, httpOnly: true });
+      res.cookie("dish", signed, { maxAge: week * 1, httpOnly: true });
       res.render("main");
     })
     .catch(err => next(err));
@@ -50,11 +52,16 @@ router.post("/login", (req, res, next) => {
   searchUser(email, password)
     .then(response => {
       console.log(response);
+      const message = "Sorry, either your username or password are incorrect";
       const { id, username } = response;
-      const signed = jwt.sign(id, process.env.SECRET);
-      const week = 1000 * 60 * 60 * 24 * 7;
-      res.cookie("userID", signed, { maxAge: week * 1, httpOnly: true });
-      res.render("main");
+      if (response.authorised === false) {
+        res.render("login", { message });
+      } else {
+        const signed = jwt.sign({ id, username }, process.env.SECRET);
+        const week = 1000 * 60 * 60 * 24 * 7;
+        res.cookie("dish", signed, { maxAge: week * 1, httpOnly: true });
+        res.render("main");
+      }
     })
     .catch(err => next(err));
 });
@@ -75,13 +82,13 @@ router.post("/:item-add", (req, res, next) => {
 
 router.post("/:item-action", (req, res, next) => {
   const { item } = req.params;
-  const signedUserID = req.cookies.userID;
-  console.log(signedUserID);
-  const userID = jwt.verify(signedUserID, process.env.SECRET);
-  console.log({ userID });
+  const cookieData = req.cookies.dish;
+  console.log(cookieData);
+  const verifiedData = jwt.verify(cookieData, process.env.SECRET);
+  const { id } = verifiedData;
 
   if (item === "dish") {
-    claimDish(req.body, userID)
+    claimDish(req.body, id)
       .then(response => {
         return getSpecificDish(response[0].dishid);
       })
@@ -91,7 +98,7 @@ router.post("/:item-action", (req, res, next) => {
       })
       .catch(err => next(err));
   } else if (item === "community") {
-    joinCommunity(req.body, userID)
+    joinCommunity(req.body, id)
       .then(() => {
         res.render("success", { item, action: "join" });
       })
