@@ -4,9 +4,11 @@ const getDishListings = param => {
   if (param !== undefined) {
     throw Error("There was an argument");
   } else {
-    return db.query("SELECT * FROM dishes").then(response => {
-      return response.rows;
-    });
+    return db
+      .query("SELECT * FROM dishes WHERE portions_remaining > 0")
+      .then(response => {
+        return response.rows;
+      });
   }
 };
 

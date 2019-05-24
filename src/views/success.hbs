@@ -5,20 +5,21 @@
 
   <div class="success-card__info">
 
-<h2 class="success-card__message">You've {{ action }}ed:</h2>
-<h3 class="success-card__dish">{{ dish.name }}</h3>
+    <h2 class="success-card__message">You've {{ action }}ed:</h2>
+    <h3 class="success-card__dish">{{ dish.name }}</h3>
 
-<div class="success-card__chef">
-  <img src="{{ user.image }}" class="success-card__chef-image">
-  <p class="success-card__chef-credit">by {{ user.username }}</p>
-</div>
+    {{#if user}}
+    <div class="success-card__chef">
+      <img src="{{ user.image }}" class="success-card__chef-image">
+      <p class="success-card__chef-credit">by {{ user.username }}</p>
+    </div>
 
-<p class="success-card__collection-time">{{ dish.collection_time }}</p>
-<p class="success-card__collection-location">{{ dish.collection_location }}</p>
+    <p class="success-card__collection-time">{{collect dish.collection_time }}</p>
+    <p class="success-card__collection-location">{{ dish.collection_location }}</p>
+    {{/if}}
+    <a href="/{{item}}-listings" class='return-link'><i class="fas fa-arrow-left"></i>See more food</a>
 
-<a href="/{{item}}-listings" class='return-link'><i class="fas fa-arrow-left"></i>See more food</a>
-
-</div>
+  </div>
 
 </div>
 

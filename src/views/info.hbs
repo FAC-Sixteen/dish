@@ -21,17 +21,21 @@
     <div class="item-info__info">
       {{!-- <p class="item-info__info__servings">Servings: {{this.portions}}</p> --}}
       <ul class="item-info__info__servings">Servings left:
+        {{#if (compare portions_remaining 0)}}
+        <li>sorry, it's all snapped up!</li>
+        {{/if}}
         {{#if (greaterThanEqualTo portions_remaining 1)}}
-        <li class='dietary-info__dietary__vegetarian'>🍽</li>
+        <li>🍽</li>
         {{/if}}
         {{#if (greaterThanEqualTo portions_remaining 2)}}
-        <li class='dietary-info__dietary__vegan'>🍽</li>
+        <li>🍽</li>
         {{/if}}
         {{#if (greaterThanEqualTo portions_remaining 3)}}
-        <li class='dietary-info__dietary__glutenFree'>🍽</li>
+        <li>🍽</li>
         {{/if}}
       </ul>
-      <p class="item-info__info__cooked">Cooked: {{moment this.date_cooked}}</p>
+      <p class="success-card__collection-time">Collect: {{collect this.collection_time }}</p>
+      <p class="item-info__info__cooked">Cooked: {{cooked this.date_cooked}}</p>
       <p class="item-info__info__description">{{this.description}}</p>
     </div>
     {{/if}}
